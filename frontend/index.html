@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Field Prediction System</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Admission Field Prediction System</h1>
+      <p class="subtitle">Demo frontend connected to a Flask backend.</p>
+
+      <form id="prediction-form">
+        <label>
+          Rank
+          <input type="number" id="rank" placeholder="Enter rank" required>
+        </label>
+
+        <label>
+          GUJCET Score
+          <input type="number" id="gujcet_score" placeholder="Enter GUJCET score" required>
+        </label>
+
+        <label>
+          Percentile
+          <input type="number" id="percentile" step="0.01" placeholder="Enter percentile" required>
+        </label>
+
+        <label>
+          Category
+          <select id="category">
+            <option value="General">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="EWS">EWS</option>
+          </select>
+        </label>
+
+        <label>
+          Gender
+          <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label>
+          Quota
+          <select id="quota">
+            <option value="ACPC">ACPC</option>
+            <option value="Management">Management</option>
+            <option value="NRI">NRI</option>
+          </select>
+        </label>
+
+        <button type="submit">Predict</button>
+      </form>
+
+      <div class="result-box">
+        <h2>Prediction Result</h2>
+        <p id="result">No prediction yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
