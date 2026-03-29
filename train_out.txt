@@ -1,0 +1,26 @@
+﻿Random Forest Accuracy: 0.2341
+Decision Tree Accuracy: 0.1963
+Random Forest Confusion Matrix:
+[[0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ ...
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]]
+Sample Predictions:
+   rank  category  quota  actual_admission_field                   predicted_admission_field
+   1002        17      5          Computer Engg.                           Information Tech.
+  13093         5      4  MECHANICAL ENGINEERING                        COMPUTER ENGINEERING
+  12201         7      3  INFORMATION TECHNOLOGY Computer Science and Information Technology
+2000434         6      2             Civil Engg.                                 Civil Engg.
+2400067         6      2 Computer Science & Engg                     Computer Science & Engg
+Saved trained model to: D:\BE\SEM 6\AI\AI_Project\model\model.pkl
+
+checked the live prediction endpoint with 5 valid inputs. The backend is working, and these are the current model outputs:
+
+Rank 650, Category OPEN, Quota GUJCET -> INFORMATION TECHNOLOGY
+Rank 3200, Category SEBC, Quota GUJCET -> COMPUTER SCIENCE & ENGINEERING (DATA SCIENCE)
+Rank 7800, Category EWS, Quota D2D -> Civil Engg.
+Rank 15000, Category SC, Quota D2D -> Information Tech.
+Rank 500, Category TFWS, Quota GUJCET -> COMPUTER SCIENCE & ENGG - TFWS

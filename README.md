@@ -2,7 +2,7 @@
 
 This project is a simple Flask + frontend starter for an AI-based Admission Field Prediction System.
 
-ML logic is not included yet. The current version only provides a working frontend-backend demo flow that returns a dummy prediction.
+The current version includes a trained machine learning model for admission field prediction and a frontend that sends form data to the Flask backend.
 
 ## Project Structure
 
@@ -35,16 +35,16 @@ ML logic is not included yet. The current version only provides a working fronte
 
 4. Fill in the form and click Predict.
 
-The app will send the form data to `POST /predict` and display the demo response:
+The app will send the form data to `POST /predict` and display the predicted admission field:
 
-```json
-{
-  "predicted_field": "Demo Result"
-}
-```
+The backend expects:
+
+- `rank`
+- `category`
+- `quota`
 
 ## Future Work
 
-The machine learning model, preprocessing, and dataset handling will be added later.
+The model can be improved later with more features, hyperparameter tuning, and better preprocessing.
 # AI_Project
 AI Project 

@@ -10,7 +10,7 @@
   <main class="container">
     <section class="card">
       <h1>Admission Field Prediction System</h1>
-      <p class="subtitle">Demo frontend connected to a Flask backend.</p>
+      <p class="subtitle">Enter your rank, category, and quota to predict the admission field.</p>
 
       <form id="prediction-form">
         <label>
@@ -19,41 +19,22 @@
         </label>
 
         <label>
-          GUJCET Score
-          <input type="number" id="gujcet_score" placeholder="Enter GUJCET score" required>
-        </label>
-
-        <label>
-          Percentile
-          <input type="number" id="percentile" step="0.01" placeholder="Enter percentile" required>
-        </label>
-
-        <label>
           Category
           <select id="category">
-            <option value="General">General</option>
-            <option value="OBC">OBC</option>
+            <option value="OPEN">OPEN</option>
             <option value="SC">SC</option>
             <option value="ST">ST</option>
+            <option value="SEBC">SEBC</option>
             <option value="EWS">EWS</option>
-          </select>
-        </label>
-
-        <label>
-          Gender
-          <select id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
+            <option value="TFWS">TFWS</option>
           </select>
         </label>
 
         <label>
           Quota
           <select id="quota">
-            <option value="ACPC">ACPC</option>
-            <option value="Management">Management</option>
-            <option value="NRI">NRI</option>
+            <option value="D2D">D2D</option>
+            <option value="GUJCET">GUJCET</option>
           </select>
         </label>
 
