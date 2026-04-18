@@ -10,12 +10,19 @@ if str(BASE_DIR) not in sys.path:
 import joblib
 from flask import Flask, jsonify, request, send_from_directory
 
-from backend.preprocess import encode_training_data, load_prediction_dataset
+from backend.preprocess import encode_training_data, load_institute_search_dataset, load_prediction_dataset
 
 
 FRONTEND_DIR = BASE_DIR / "frontend"
 MODEL_FILE = BASE_DIR / "model" / "model.pkl"
 DATA_FILE = BASE_DIR / "data" / "acpc_admission_data.csv"
+ENRICHED_DATA_FILE = BASE_DIR / "data" / "acpc_admission_enriched.csv"
+
+
+PREDICTION_DEFAULTS = {
+    "category": "OPEN",
+    "quota": "GUJCET",
+}
 
 app = Flask(__name__)
 
@@ -42,6 +49,9 @@ def load_model_bundle():
         model = model_artifact
 
     dataset = load_prediction_dataset()
+    dataset = dataset.dropna(subset=["category", "quota", "admission_field"]).copy()
+    default_category = dataset["category"].astype(str).mode().iat[0] if not dataset.empty else PREDICTION_DEFAULTS["category"]
+    default_quota = dataset["quota"].astype(str).mode().iat[0] if not dataset.empty else PREDICTION_DEFAULTS["quota"]
     _, category_encoder, quota_encoder, target_encoder = encode_training_data(dataset)
 
     return {
@@ -49,6 +59,8 @@ def load_model_bundle():
         "category_encoder": category_encoder,
         "quota_encoder": quota_encoder,
         "target_encoder": target_encoder,
+        "default_category": default_category,
+        "default_quota": default_quota,
     }
 
 
@@ -65,8 +77,8 @@ def predict():
 
     try:
         rank = int(payload.get("rank"))
-        category = str(payload.get("category", "")).strip()
-        quota = str(payload.get("quota", "")).strip()
+        category = str(payload.get("category", "")).strip() or None
+        quota = str(payload.get("quota", "")).strip() or None
     except (TypeError, ValueError):
         return jsonify({"error": "Rank must be a valid number."}), 400
 
@@ -75,6 +87,10 @@ def predict():
         return jsonify({"error": "Trained model file was not found."}), 500
 
     try:
+        if not category:
+            category = model_bundle["default_category"]
+        if not quota:
+            quota = model_bundle["default_quota"]
         category_encoded = model_bundle["category_encoder"].transform([category])[0]
         quota_encoded = model_bundle["quota_encoder"].transform([quota])[0]
         prediction_encoded = model_bundle["model"].predict([[rank, category_encoded, quota_encoded]])[0]
@@ -95,6 +111,67 @@ def style():
 def script():
     """Serve the frontend JavaScript file."""
     return send_from_directory(FRONTEND_DIR, "script.js")
+
+
+@app.route("/api/options")
+def options():
+    """Return filter options for the institute search UI."""
+    dataset = load_institute_search_dataset()
+    branches = sorted(_unique_values(dataset, "course_name"))
+    cities = sorted(_unique_values(dataset, "city"))
+    institutes = sorted(_unique_values(dataset, "institute_name"))
+    return jsonify(
+        {
+            "branches": branches,
+            "cities": cities,
+            "institutes": institutes,
+            "hostel_available": ["Yes", "No"],
+            "categories": ["OPEN", "SC", "ST", "SEBC", "EWS", "TFWS"],
+            "quotas": ["D2D", "GUJCET"],
+        }
+    )
+
+
+@app.route("/api/filter")
+def filter_institutes():
+    """Filter the admissions dataset by institute, branch, and hostel availability."""
+    dataset = load_institute_search_dataset().copy()
+    branch = request.args.get("branch", "").strip()
+    city = request.args.get("city", "").strip()
+    institute_name = request.args.get("institute_name", "").strip()
+    hostel_available = request.args.get("hostel_available", "").strip()
+    limit = request.args.get("limit", "20")
+
+    if branch:
+        dataset = dataset[dataset["course_name"].astype(str).str.strip().str.casefold() == branch.casefold()]
+    if city and "city" in dataset.columns:
+        dataset = dataset[dataset["city"].astype(str).str.strip().str.casefold() == city.casefold()]
+    if institute_name:
+        dataset = dataset[dataset["institute_name"].astype(str).str.strip().str.casefold() == institute_name.casefold()]
+    if hostel_available and "hostel_available" in dataset.columns:
+        dataset = dataset[dataset["hostel_available"].astype(str).str.strip().str.casefold() == hostel_available.casefold()]
+
+    try:
+        limit_value = max(1, int(limit))
+    except (TypeError, ValueError):
+        limit_value = 20
+
+    columns = [column for column in ["institute_name", "course_name", "city", "hostel_available", "official_website"] if column in dataset.columns]
+    filtered = dataset[columns].fillna("").drop_duplicates().head(limit_value)
+    return jsonify({"results": filtered.to_dict(orient="records")})
+
+
+def _unique_values(dataframe, column_name):
+    """Collect sorted, non-empty string values from a dataframe column."""
+    if column_name not in dataframe.columns:
+        return []
+
+    values = set()
+    for value in dataframe[column_name].astype(str):
+        cleaned_value = value.strip()
+        if cleaned_value and cleaned_value.casefold() != "nan":
+            values.add(cleaned_value)
+    return values
 
 
 if __name__ == "__main__":
