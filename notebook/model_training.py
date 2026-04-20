@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 
 import joblib
 import pandas as pd
@@ -13,21 +14,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = BASE_DIR / "data" / "acpc_admission_data.csv"
 MODEL_FILE = BASE_DIR / "model" / "model.pkl"
 
+if str(BASE_DIR) not in sys.path:
+	sys.path.insert(0, str(BASE_DIR))
+
+from backend.preprocess import load_prediction_dataset
+
 
 def load_data():
 	"""Load and prepare the admission dataset."""
-	data = pd.read_csv(DATA_FILE)
-
-	# Keep only the columns needed for prediction.
-	data = data[["rank", "category", "quota", "admission_field"]]
-	data = data.dropna().copy()
-
-	# Ensure rank is numeric before training.
-	data["rank"] = pd.to_numeric(data["rank"], errors="coerce")
-	data = data.dropna(subset=["rank"])
-	data["rank"] = data["rank"].astype(int)
-
-	return data
+	return load_prediction_dataset()
 
 
 def encode_features(data):

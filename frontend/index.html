@@ -22,12 +22,6 @@
           Category
           <select id="category">
             <option value="">Auto</option>
-            <option value="OPEN">OPEN</option>
-            <option value="SC">SC</option>
-            <option value="ST">ST</option>
-            <option value="SEBC">SEBC</option>
-            <option value="EWS">EWS</option>
-            <option value="TFWS">TFWS</option>
           </select>
         </label>
 
@@ -35,17 +29,23 @@
           Quota
           <select id="quota">
             <option value="">Auto</option>
-            <option value="D2D">D2D</option>
-            <option value="GUJCET">GUJCET</option>
           </select>
         </label>
 
-        <button type="submit">Predict</button>
+        <div class="action-row">
+          <button type="submit" id="predict-btn">Predict</button>
+          <button type="button" id="check-accuracy-btn" class="secondary">Check Accuracy</button>
+        </div>
       </form>
 
       <div class="result-box">
         <h2>Prediction Result</h2>
         <p id="result">No prediction yet.</p>
+      </div>
+
+      <div class="result-box" id="accuracy-box">
+        <h2>Accuracy Check</h2>
+        <p id="accuracy-result">No input-based accuracy estimate yet.</p>
       </div>
 
       <section class="search-panel">
@@ -83,6 +83,20 @@
             </select>
           </label>
 
+          <label>
+            Boys Hostel
+            <select id="filter-boys-hostel">
+              <option value="">All</option>
+            </select>
+          </label>
+
+          <label>
+            Girls Hostel
+            <select id="filter-girls-hostel">
+              <option value="">All</option>
+            </select>
+          </label>
+
           <button type="submit">Search Institutes</button>
         </form>
 
@@ -94,11 +108,13 @@
                 <th>Branch</th>
                 <th>City</th>
                 <th>Hostel</th>
+                <th>Boys Hostel</th>
+                <th>Girls Hostel</th>
                 <th>Website</th>
               </tr>
             </thead>
             <tbody id="filter-results">
-              <tr><td colspan="5">No results yet.</td></tr>
+              <tr><td colspan="7">No results yet.</td></tr>
             </tbody>
           </table>
         </div>

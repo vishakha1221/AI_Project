@@ -60,7 +60,6 @@ select {
 }
 
 button {
-  grid-column: 1 / -1;
   padding: 14px;
   border: none;
   border-radius: 10px;
@@ -73,6 +72,21 @@ button {
 
 button:hover {
   background: #1d4ed8;
+}
+
+.action-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.secondary {
+  background: #334155;
+}
+
+.secondary:hover {
+  background: #1f2937;
 }
 
 .result-box {
@@ -121,4 +135,16 @@ th {
   margin-bottom: 0;
   font-size: 18px;
   font-weight: 700;
+}
+
+#accuracy-result {
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .action-row {
+    grid-template-columns: 1fr;
+  }
 }
