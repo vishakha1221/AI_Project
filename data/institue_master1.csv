@@ -1,404 +1,132 @@
 institute_name,hostel_available,boys_hostel,girls_hostel,official_website
-
-"A.D.PATEL INSTITUTE OF TECH.,KARAMSAD",Yes,Yes,Yes,
-"A.D.Patel Institute Of Tech., Karamsad",Yes,Yes,Yes,
-"A.D.Patel Institute Of Tech.,Karamsad",Yes,Yes,Yes,
-"ADANI UNIVERSITY - FACULTY OF ENGINEERING SCIENCES & TECHNOLOGY (AU-FEST), AHMEDABAD",Yes,Yes,Yes,
-"ADIT, Karamsad",No,No,No,
-ADITYA SILVER OAK INSTITUTE OF TECHNOLOGY (WITHIN LIMITS OF AHMEDABAD MUNICIPAL CORPORATION) AHMEDABAD,Yes,Yes,Yes,
-"AHMEDABAD INSTITUTE OF TECH, AHMEDABAD",Yes,Yes,Yes,
-"AHMEDABAD UNIVERSITY, AHMEDABAD",Yes,Yes,Yes,
-"AIT, Ahmedabad",No,No,No,https://aitindia.in
-"ALPHA, Kalol",No,No,No,
-"AMRUT INSTITUTE, JUNAGADH",Yes,Yes,Yes,
-"AMT I.Sc.Tech, Bardoli",No,No,No,
-"ANANT SCHOOL FOR CLIMATE ACTION, AHMEDABAD",No,No,No,
-APOLLO INSTITUTE OF ENGINEERING & TECHNOLOGY AHMEDABAD,Yes,Yes,Yes,
-"ARRDEKTA INST. OF TECHNOLOGY, KHEDBRAHMA, SABARKANTHA",Yes,Yes,Yes,
-"ARUN MUNCHHALA ENGINEERING COLLEGE, AMRELI",Yes,Yes,Yes,
-ASHA M. TARSADIA INSTITUTE OF COMPUTER SCIENCE & TECH. BARDOLI,Yes,Yes,Yes,
-"ASIA School of Engineering, Ahmedabad",Yes,Yes,Yes,
+"A.D.PATEL INSTITUTE OF TECH.,KARAMSAD",Yes,Yes,Yes,https://www.adit.ac.in
+"ADANI UNIVERSITY - FACULTY OF ENGINEERING SCIENCES & TECHNOLOGY (AU-FEST), AHMEDABAD",Yes,Yes,Yes,https://www.adaniuni.ac.in
+"ADITYA SILVER OAK INSTITUTE OF TECHNOLOGY (WITHIN LIMITS OF AHMEDABAD MUNICIPAL CORPORATION) AHMEDABAD",Yes,Yes,Yes,https://silveroakuni.ac.in
+"AHMEDABAD INSTITUTE OF TECH, AHMEDABAD",Yes,Yes,Yes,https://aitindia.in
+"AHMEDABAD UNIVERSITY, AHMEDABAD",Yes,Yes,Yes,https://ahduni.edu.in
+"ALPHA COLLEGE OF ENGG. & TECH., KHATRAJ, KALOL",Yes,Yes,Yes,https://alpha-cet.in
+"AMRUT INSTITUTE, JUNAGADH",Yes,Yes,Yes,https://amrutinstitute.ac.in
+"AMT I.Sc.Tech, Bardoli",No,No,No,https://utu.ac.in
+"ANANT SCHOOL FOR CLIMATE ACTION, AHMEDABAD",No,No,No,https://anu.edu.in
+"APOLLO INSTITUTE OF ENGINEERING & TECHNOLOGY AHMEDABAD",Yes,Yes,Yes,https://apollo-iet.edu.in
+"ARRDEKTA INST. OF TECHNOLOGY, KHEDBRAHMA, SABARKANTHA",Yes,Yes,Yes,https://arrdekta.ac.in
+"ARUN MUNCHHALA ENGINEERING COLLEGE, AMRELI",Yes,Yes,Yes,http://www.amec.org.in
+"ASHA M. TARSADIA INSTITUTE OF COMPUTER SCIENCE & TECH. BARDOLI",Yes,Yes,Yes,https://utu.ac.in/amtics
+"ASIA School of Engineering, Ahmedabad",Yes,Yes,Yes,https://jguni.in
 "ATMIYA UNIVERSITY, FACULTY OF ENGINEERING AND TECHNOLOGY, RAJKOT",Yes,Yes,Yes,https://atmiyauniversity.ac.in
-"ATMIYA, Rajkot",No,No,No,
-"Adani Institute Of Infrastructure Engineering, Ahmedabad",Yes,Yes,Yes,https://adaniuni.ac.in
-"Adani, Ahmedabad",No,No,No,https://adaniuni.ac.in
-"Aditya Silver Oak Institute Of Technology (Within Limits Of Ahmedabad Municipal Corporation), Ahmedab",Yes,Yes,Yes,
-"Aditya, Ahmedabad",No,No,No,https://silveroakuni.ac.in
-"Agrawal, Navsari",No,No,No,
-"Ahmedabad Institute Of Tech, Ahmedabad",Yes,Yes,Yes,https://aitindia.in
-"Alpha College Of Engg. & Tech., Khatraj, Kalol",Yes,Yes,Yes,
-"Anant School for Climate Action, Ahmedabad",No,No,No,
-"Apollo Institute Of Engineering & Technology, Ahmedabad",Yes,Yes,Yes,
-"ApolloET, Ahmedabad",No,No,No,
-"Arrdekta Inst. Of Technology, Khedbrahma, Sabarkantha",Yes,Yes,Yes,
-"Arrdekta, Khedbrahm",No,No,No,
-"Asha M. Tarsadia Institute of Computer Science & Tech. Bardoli",Yes,Yes,Yes,
-"Asha M. Tarsadia Institute of Computer Science & Tech., Bardoli",Yes,Yes,Yes,
-"Atmiya University, Faculty of Engineering and Technology, Rajkot",Yes,Yes,Yes,
 "B.H.GARDI COLLEGE OF ENGG. & TECHNOLOGY , RAJKOT",Yes,Yes,Yes,https://www.bhgardi.edu.in
-"B.H.Gardi College Of Engg. & Technology , Rajkot",Yes,Yes,Yes,https://www.bhgardi.edu.in
-"BAIT, Surat",No,No,No,
-"BALAJI, Makhiyala",No,No,No,
-"BHAGWAN ARIHANT INSTITUTE OF TECH., SURAT",Yes,Yes,Yes,
-"BHAGWAN MAHAVIR COLLEGE OF ENGG. AND TECH., SURAT",Yes,Yes,Yes,
-"BHGARDI, Rajkot",No,No,No,
-"BIRLA VISHVAKARMA MAHA VIDHYALAYA(GIA), V.V.NAGAR",No,No,No,
-"BIRLA VISHVAKARMA MAHA VIDHYLAYA(SFI), V.V.NAGAR",No,No,No,
-"BMCET, Surat",No,No,No,
-"BVM (GIA), VVNagar",No,No,No,https://bvmengineering.ac.in
-"BVM (SFI), VVNagar",No,No,No,https://bvmengineering.ac.in
-"C. K. PITHAWALA COLLEGE OF ENGG. & TECH., SURAT",Yes,Yes,Yes,
-"C. K. Pithawala College Of Engg. & Tech., Surat",Yes,Yes,Yes,https://ckpcet.ac.in
-"C.U.SHAH COLLEGE OF ENGG.& TECH.,WADHVAN",Yes,Yes,Yes,
-"C.U.Shah College Of Engg.& Tech.,Wadhvan",Yes,Yes,Yes,
-CENTRAL INSTITUTE OF PETROCHEMICALS ENGINEERING & TECHNOLOGY,Yes,Yes,Yes,
-"CGPIT, Tarsadi",No,No,No,https://www.charusat.ac.in
-"CHAROTAR UNIVERSITY OF SCIENCE & TECHNOLOGY (CHARUSAT) - CHANDUBHAI S PATEL INSTITUTE OF TECHNOLOGY (CSPIT), CH",Yes,Yes,Yes,
-CHAROTAR UNIVERSITY OF SCIENCE & TECHNOLOGY (CHARUSAT) - DEVANG PATEL INSTITUTE OF ADVANCE TECHNOLOGY AND RES,Yes,Yes,Yes,
-"CHHOTUBHAI GOPALBHAI PATEL INSTITUTE OF TECH., TARSADI, BARDOLI",Yes,Yes,Yes,
-"CIPET, Ahmedabad",No,No,No,
-"CKPCET, Surat",No,No,No,https://ckpcet.ac.in
-"CPIT, Changa",No,No,No,https://www.charusat.ac.in
-"CUSHAH, Wadhvan",No,No,No,
-Central Institute of Petrochemicals Engineering & Technology,Yes,Yes,Yes,
-"Charotar University Of Science & Technology (Charusat) - Chandubhai S Patel Institute Of Technology (CSPIT), Changa",Yes,Yes,Yes,
-"Charotar University of Science & Technology (CHARUSAT) - Chandubhai S Patel Institute Of Technology (CSPIT), Changa",Yes,Yes,Yes,https://www.charusat.ac.in
-Charotar University of Science & Technology (CHARUSAT) - Devang Patel Institute of Advance Technology And Research,Yes,Yes,Yes,
-"Charotar University of Science & Technology (CHARUSAT) - Devang Patel Institute Of Technology And Research (DEPSTAR), Changa",Yes,Yes,Yes,https://www.charusat.ac.in
-"Charusat (DEPSTAR), Changa",No,No,No,
-"Charusat(CSPIT), Changa",No,No,No,
-"Chhotubhai Gopalbhai Patel Institute Of Tech., Tarsadi, Bardoli",Yes,Yes,Yes,
-"D. A. DEGREE ENGINEERING AND TECHNOLOGY, MAHEMDABAD, KHEDA",Yes,Yes,Yes,
-"D. A. Degree Engineering and Technology, Mahemdabad, Kheda",Yes,Yes,Yes,
-"DADET, Khatraj",No,No,No,
-"DALIA INSTITUTE OF TECHNOLOGY, KANERA",Yes,Yes,Yes,
-"DARSHAN INSTITUTE OF ENGG. & TECH., RAJKOT-MORBI HIGHWAY, HADALA",Yes,Yes,Yes,
-"DDU (GIA), Nadiad",No,No,No,https://www.ddu.ac.in
-"DDU (SFI), Nadiad",No,No,No,https://www.ddu.ac.in
-"DHIRUBHAI AMBANI INSTITUTE OF INFO. & COMM. TECH., GANDHINAGAR",Yes,Yes,Yes,
-"DPIATR, Changa",No,No,No,https://www.charusat.ac.in
-"DR. JIVRAJ MEHTA INSTITUTE OF TECHNOLOGY, ANAND",Yes,Yes,Yes,
-DR. S & S.S.GHANDHI GOVERNMENT ENGINEERING COLLEGE SURAT,Yes,Yes,Yes,
-DR. S & S.S.Ghandhi Government Engineering College Surat,Yes,Yes,Yes,
-"DR. S & S.S.Ghandhi Government Engineering College, Surat",Yes,Yes,Yes,
-"DR. SUBHASH UNIVERSITY, SCHOOL OF ENGINEERING & TECHNOLOGY, JUNAGADH",Yes,Yes,Yes,
-"DR. V.R. GODHANIA COLLEGE OF ENGG. & TECH., PORBANDAR",Yes,Yes,Yes,
-"Darshan Institute Of Engg. & Tech., Rajkot-Morbi Highway, Hadala",Yes,Yes,Yes,https://darshan.ac.in
-"Darshan, Rajkot",No,No,No,https://darshan.ac.in
-"Dhanvantary, KIM",No,No,No,
-"Dhirubhai Ambani Institute of Info. & Comm. Tech., Gandhinagar",Yes,Yes,Yes,
-"Dr. Jivraj Mehta Institute Of Technology, Anand",Yes,Yes,Yes,
-"Dr. Subhahsh Technical Campus, Junagadh",No,No,No,
-"Dr. Subhash University, School of Engineering & Technology, Junagadh",Yes,Yes,Yes,
-"Dr. V.R. Godhania College of Engg. & Tech., Porbandar",Yes,Yes,Yes,
-"EC, Tuwa",No,No,No,
-"ENGGINERING COLLEGE, TUWA, GODHARA",Yes,Yes,Yes,
-"Engginering College, Tuwa, Godhara",Yes,Yes,Yes,
-"Engineering-Gujarati Gyanmanjari Institute Of Technology, Bhavnagar",Yes,Yes,Yes,
-"FACULTY OF ENGINEERING & TECHNOLOGY- GLS UNIVERSITY, AHMEDABAD",Yes,Yes,Yes,
-"FACULTY OF ENGINEERING & TECHNOLOGY- SIGMA UNIVERSITY, BAKROL, VADODARA",Yes,Yes,Yes,
-"FACULTY OF TECHNOLOGY & ENGINEERING(MSU) (SFI), VADODARA",Yes,Yes,Yes,
-"FACULTY OF TECHNOLOGY & ENGINEERING(MSU), VADODARA",Yes,Yes,Yes,
-"FACULTY OF TECHNOLOGY AND ENGINEERING(GIA), DHARMSINH DESAI UNIVERSITY, (DDU), NADIAD",Yes,Yes,Yes,
-"FACULTY OF TECHNOLOGY(SFI), DHARMSINH DESAI UNIVERSITY, NADIAD",Yes,Yes,Yes,
-"FACULTY OF TECHNOLOGY, CEPT UNIVERSITY, AHMEDABAD",Yes,Yes,Yes,
-"FOET-GLS, Ahmedabad",No,No,No,
-"Faculty Of Technology & Engineering (MSU), Vadodara",Yes,Yes,Yes,
-"Faculty Of Technology & Engineering(MSU), Vadodara",Yes,Yes,Yes,
-"Faculty Of Technology (SFI), Dharmsinh Desai University, Nadiad",Yes,Yes,Yes,
-"Faculty Of Technology And Engineering (GIA), Dharmsinh Desai University, (DDU), Nadiad",Yes,Yes,Yes,
-"Faculty Of Technology And Engineering(GIA), Dharmsinh Desai University, (DDU), Nadiad",Yes,Yes,Yes,
-"Faculty Of Technology(Sfi), Dharmsinh Desai University, Nadiad",Yes,Yes,Yes,
-"Faculty of Engineering & Technology- GLS University, Ahmedabad",Yes,Yes,Yes,https://www.glsuniversity.ac.in
-"Faculty of Engineering & Technology- Sigma University, Bakrol, Vadodara",Yes,Yes,Yes,https://sigmauniversity.ac.in
-"Faculty of Technology, CEPT University, Ahmedabad",Yes,Yes,Yes,https://cept.ac.in
+"BALAJI, Makhiyala",No,No,No,http://www.becj.in
+"BHAGWAN ARIHANT INSTITUTE OF TECH., SURAT",Yes,Yes,Yes,https://bait.bmu.ac.in
+"BHAGWAN MAHAVIR COLLEGE OF ENGG. AND TECH., SURAT",Yes,Yes,Yes,https://bmefcolleges.edu.in
+"BIRLA VISHVAKARMA MAHA VIDHYALAYA, V.V.NAGAR",No,No,No,https://bvmengineering.ac.in
+"C. K. PITHAWALA COLLEGE OF ENGG. & TECH., SURAT",Yes,Yes,Yes,https://ckpcet.ac.in
+"C.U.SHAH COLLEGE OF ENGG.& TECH.,WADHVAN",Yes,Yes,Yes,https://www.cushahuni.ac.in
+"CENTRAL INSTITUTE OF PETROCHEMICALS ENGINEERING & TECHNOLOGY",Yes,Yes,Yes,https://www.cipet.gov.in
+"CHAROTAR UNIVERSITY OF SCIENCE & TECHNOLOGY (CHARUSAT) - CHANDUBHAI S PATEL INSTITUTE OF TECHNOLOGY (CSPIT), CHANGA",Yes,Yes,Yes,https://www.charusat.ac.in
+"CHAROTAR UNIVERSITY OF SCIENCE & TECHNOLOGY (CHARUSAT) - DEVANG PATEL INSTITUTE OF ADVANCE TECHNOLOGY AND RESEARCH",Yes,Yes,Yes,https://www.charusat.ac.in
+"CHHOTUBHAI GOPALBHAI PATEL INSTITUTE OF TECH., TARSADI, BARDOLI",Yes,Yes,Yes,https://cgpit-bardoli.edu.in
+"D. A. DEGREE ENGINEERING AND TECHNOLOGY, MAHEMDABAD, KHEDA",Yes,Yes,Yes,http://dadet.in
+"DALIA INSTITUTE OF TECHNOLOGY, KANERA",Yes,Yes,Yes,http://daliainstitute.in
+"DARSHAN INSTITUTE OF ENGG. & TECH., RAJKOT-MORBI HIGHWAY, HADALA",Yes,Yes,Yes,https://darshan.ac.in
+"DHARMSINH DESAI UNIVERSITY, (DDU), NADIAD",Yes,Yes,Yes,https://www.ddu.ac.in
+"DHIRUBHAI AMBANI INSTITUTE OF INFO. & COMM. TECH., GANDHINAGAR",Yes,Yes,Yes,https://www.daiict.ac.in
+"DR. JIVRAJ MEHTA INSTITUTE OF TECHNOLOGY, ANAND",Yes,Yes,Yes,https://www.djmit.ac.in
+"DR. S & S.S.GHANDHI GOVERNMENT ENGINEERING COLLEGE SURAT",Yes,Yes,Yes,https://www.ssgc.cteguj.in
+"DR. SUBHASH UNIVERSITY, SCHOOL OF ENGINEERING & TECHNOLOGY, JUNAGADH",Yes,Yes,Yes,https://drsubhashuniversity.ac.in
+"DR. V.R. GODHANIA COLLEGE OF ENGG. & TECH., PORBANDAR",Yes,Yes,Yes,https://www.drvrgcet.ac.in
+"ENGGINERING COLLEGE, TUWA, GODHARA",Yes,Yes,Yes,http://www.engineeringcollegetuwa.com
+"FACULTY OF ENGINEERING & TECHNOLOGY- GLS UNIVERSITY, AHMEDABAD",Yes,Yes,Yes,https://www.glsuniversity.ac.in
+"FACULTY OF ENGINEERING & TECHNOLOGY- SIGMA UNIVERSITY, BAKROL, VADODARA",Yes,Yes,Yes,https://sigmauniversity.ac.in
+"FACULTY OF TECHNOLOGY & ENGINEERING(MSU), VADODARA",Yes,Yes,Yes,https://msubaroda.ac.in
+"FACULTY OF TECHNOLOGY, CEPT UNIVERSITY, AHMEDABAD",Yes,Yes,Yes,https://cept.ac.in
 "G.H.PATEL COLLEGE OF ENGG. & TECH. , V. V. NAGAR",Yes,Yes,Yes,https://gcet.ac.in
-"G.H.Patel College Of Engg. & Tech. , V. V. Nagar",Yes,Yes,Yes,https://gcet.ac.in
-"GANDHINAGAR INSTITUTE OF TECHNOLOGY, MOTI BHOYAN, KALOL, GANDHINAGAR",Yes,Yes,Yes,
-"GANPAT UNIVERSITY, INSTITUTE OF COMPUTER TECH., KHERVA, MEHSANA",Yes,Yes,Yes,
-"GANPAT UNIVERSITY, U.V.PATEL COLLEGE OF ENGINEERING, KHERVA, MEHSANA",Yes,Yes,Yes,
-"GCET, VVNagar",No,No,No,
-"GEC, Bharuch",No,No,No,https://gecbh.ac.in
-"GEC, Bhavnagar",No,No,No,https://gecbhavnagar.ac.in
-"GEC, Bhuj",No,No,No,https://gecbhuj.ac.in
-"GEC, Dahod",No,No,No,https://gecdahod.ac.in
-"GEC, Gandhinagar",No,No,No,https://gecgandhinagar.ac.in
-"GEC, Godhra",No,No,No,https://gecgodhra.ac.in
-"GEC, Modasa",No,No,No,https://gecmodasa.ac.in
-"GEC, Palanpur",No,No,No,https://gecpalanpur.ac.in
-"GEC, Patan",No,No,No,https://gecpatan.ac.in
-"GEC, Rajkot",No,No,No,https://gecrajkot.ac.in
-"GEC, Surat",No,No,No,https://gecsurat.gujarat.gov.in
-"GEC, Valsad",No,No,No,https://gecvalsad.ac.in
-"GIDC DEGREE ENGINEERING COLLEGE, ABRAMA, NAVSARI",Yes,Yes,Yes,
-"GIDC Degree Engineering College, Abrama, Navsari",Yes,Yes,Yes,
-"GIDC Degree Engineering College, Abrama, Navsari (PPP)",Yes,Yes,Yes,
-"GIDCDEC, Navsari",No,No,No,
-"GIT, Gandhinagar",No,No,No,https://git.org.in
-"GOVERNMENT ENGINEERING COLLEGE, BHARUCH",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, BHUJ",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, DAHOD",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, GODHRA",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, MODASA",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, PALANPUR",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, PATAN",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, RAJKOT",Yes,Yes,Yes,
-"GOVERNMENT ENGINEERING COLLEGE, VALSAD",Yes,Yes,Yes,
-"GPERI, Mevad",No,No,No,
-"GROW MORE FACULTY OF ENGINEERING, BERNA, HIMMATNAGAR",Yes,Yes,Yes,
-"GSFCU, Vadodara",No,No,No,
-"GTU-SOEAT, Ahmedabad",No,No,No,
-"GUJARAT POWER ENGG. AND RES. INST. (GPERI) (PPP), MEVAD, MEHSANA",No,No,No,
-"GUJARAT TECHNOLOGICAL UNIVERSITY SCHOOL OF ENGINEERING AND TECHNOLOGY, CHANDKHEDA, AHMEDABAD",Yes,Yes,Yes,
-"GYANMANJARI INSTITUTE OF TECHNOLOGY BHAVNAGAR",Yes,Yes,Yes,
-"GYANMANJARI INSTITUTE OF TECHNOLOGY Bhavnagar",Yes,Yes,Yes,
-"Gandhinagar Institute Of Technology, Moti Bhoyan, Kalol, Gandhinagar",Yes,Yes,Yes,
-"Ganpat Uni. ICT, Mehsana",No,No,No,https://ganpatuniversity.ac.in
-"Ganpat Uni. UVPCE, Mehsana",No,No,No,https://ganpatuniversity.ac.in
-"Ganpat University, Institute of Computer Tech., Kherva, Mehsana",Yes,Yes,Yes,
-"Ganpat University, U.V.Patel College of Engineering, Kherva, Mehsana",Yes,Yes,Yes,
-"Government Engineering College, Bharuch",Yes,Yes,Yes,
-"Government Engineering College, Bhavnagar",Yes,Yes,Yes,
-"Government Engineering College, Bhuj",Yes,Yes,Yes,
-"Government Engineering College, Dahod",Yes,Yes,Yes,
-"Government Engineering College, Godhra",Yes,Yes,Yes,
-"Government Engineering College, Modasa",Yes,Yes,Yes,
-"Government Engineering College, Palanpur",Yes,Yes,Yes,
-"Government Engineering College, Patan",Yes,Yes,Yes,
-"Government Engineering College, Rajkot",Yes,Yes,Yes,
-"Government Engineering College, Valsad",Yes,Yes,Yes,
-"Graduate School of Engineering and Technology, GTU, Ahmedabad",Yes,Yes,Yes,
-"Grow More Faculty of Engineering, Berna, Himmatnagar",Yes,Yes,Yes,
-"GrowMore, Berna",No,No,No,
-"Gujarat Power Engg. And Res. Inst. (GPERI) , Mevad, Mehsana",No,No,No,
-"Gujarat Power Engg. And Res. Inst. (Gperi) (Ppp), Mevad, Mehsana",No,No,No,
-"Gyanmanjari, Bhavnagar",No,No,No,
-"HANSABA COLLEGE OF ENGIEERING AND TECHNOLOGY, SIDDHPUR",Yes,Yes,Yes,
-"HASMUKH GOSWAMI COLLEGE OF ENGG, VAHELAL",Yes,Yes,Yes,
-"HGCE-Ahmedabad",No,No,No,
-"HJD INSTITUTE OF TECHNICAL EDUCATION AND RESERCH, KERA",Yes,Yes,Yes,
-"HJD, Kera",No,No,No,
-"Hansaba College Of Engieering And Technology, Siddhpur",Yes,Yes,Yes,
-"Hansaba, Patan",No,No,No,
-"Hasmukh Goswami College Of Engg, Vahelal",Yes,Yes,Yes,
-"IAR, Gandhinagar",No,No,No,https://iar.ac.in
-"IIET, Dharmaj",No,No,No,
-"INDUS INSTITUTE OF TECH. & ENGG., RACHARDA, AHMEDABAD",Yes,Yes,Yes,
-"INSTITUTE OF ADVANCED RESEARCH, GANDHINAGAR",Yes,Yes,Yes,
-"INSTITUTE OF INFRASTRUCTURE,TECHNOLOGY,RESEARCH AND MANAGEMENT(IITRAM),AHMEDABAD",Yes,Yes,Yes,
-"INSTITUTE OF TECHNOLOGY, NIRMA UNIVERSITY OF SCIENCE & TECHNOLOGY, AHMEDABAD",Yes,Yes,Yes,
-"Ipcowala Institute Of Engineering And Technology Dharmaj",Yes,Yes,Yes,
-"Ipcowala, Dharmaj",No,No,No,
-"JG UNIVERSITY - SCHOOL OF ENGINEERING, AHMEDABAD",Yes,Yes,Yes,
-"JG University, Ahmedabad",Yes,Yes,Yes,
-"JMSabva, Botad",No,No,No,
-"JivrajMehta,Anand",No,No,No,
-"K.J. INSTITUTE OF ENGG. AND TECH., SAVALI",Yes,Yes,Yes,
-"K.J. Institute Of Engg. And Tech., Savali",Yes,Yes,Yes,
-"KALOL INSTITUTE OF TECH. & RESEARCH CENTER ,KALOL",Yes,Yes,Yes,
-"KANKESHWARI DEVI COLLEGE OF ENGINEERING, JAMNAGAR",Yes,Yes,Yes,
-"KIT, Jamnagar",No,No,No,
-"KITRC, Kalol",No,No,No,
-"KJIET, Savali",No,No,No,
-"KRISHNA SCHOOL OF EMERGING TECHNOLOGY & APPLIED RESEARCH (FORMERLY KNOWN AS BABARIA INSTITUTE OF TECHNOLOGY)",Yes,Yes,Yes,
-"KRISHNA SCHOOL OF TECHNOLOGY, VARNAMA, VADODARA",Yes,Yes,Yes,
-"Kalol Institute Of Tech. & Research Center ,Kalol",Yes,Yes,Yes,
-"Kalol Institute Of Tech. & Research Center, Kalol",Yes,Yes,Yes,
-"Kankeshwari Devi College of Engineering, Jamnagar",Yes,Yes,Yes,
-"Krishna (BIT), Vadodara",No,No,No,
-"Krishna School of Emerging Technology & Applied Research (Formerly Known as BIT) , Varnama, Vadodara",Yes,Yes,Yes,
-"Krishna School of Emerging Technology & Applied Research (Formerly Known as Babaria Institute Of Technology) , Varnama, Vadodara",Yes,Yes,Yes,
-"Krishna School of Technology, Varnama, Vadodara",Yes,Yes,Yes,
-"Krishna, Varnama, Vadodara",No,No,No,
-"Krishna-KSET, Vadodara",No,No,No,
+"GANDHINAGAR INSTITUTE OF TECHNOLOGY, MOTI BHOYAN, KALOL, GANDHINAGAR",Yes,Yes,Yes,https://git.org.in
+"GANPAT UNIVERSITY, INSTITUTE OF COMPUTER TECH., KHERVA, MEHSANA",Yes,Yes,Yes,https://ganpatuniversity.ac.in
+"GANPAT UNIVERSITY, U.V.PATEL COLLEGE OF ENGINEERING, KHERVA, MEHSANA",Yes,Yes,Yes,https://ganpatuniversity.ac.in
+"GIDC DEGREE ENGINEERING COLLEGE, ABRAMA, NAVSARI",Yes,Yes,Yes,https://gdec.in
+"GOVERNMENT ENGINEERING COLLEGE, BHARUCH",Yes,Yes,Yes,https://gecbh.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR",Yes,Yes,Yes,https://gecbhavnagar.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, BHUJ",Yes,Yes,Yes,https://gecbhuj.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, DAHOD",Yes,Yes,Yes,https://gecdahod.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, GODHRA",Yes,Yes,Yes,https://gecgodhra.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, MODASA",Yes,Yes,Yes,https://gecmodasa.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, PALANPUR",Yes,Yes,Yes,https://gecpalanpur.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, PATAN",Yes,Yes,Yes,https://gecpatan.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, RAJKOT",Yes,Yes,Yes,https://gecrajkot.ac.in
+"GOVERNMENT ENGINEERING COLLEGE, VALSAD",Yes,Yes,Yes,https://gecvalsad.ac.in
+"GROW MORE FACULTY OF ENGINEERING, BERNA, HIMMATNAGAR",Yes,Yes,Yes,http://www.growmore.ac.in
+"GUJARAT POWER ENGG. AND RES. INST. (GPERI) (PPP), MEVAD, MEHSANA",No,No,No,https://gperi.ac.in
+"GUJARAT TECHNOLOGICAL UNIVERSITY SCHOOL OF ENGINEERING AND TECHNOLOGY, CHANDKHEDA, AHMEDABAD",Yes,Yes,Yes,https://www.gtu.ac.in
+"GYANMANJARI INSTITUTE OF TECHNOLOGY BHAVNAGAR",Yes,Yes,Yes,https://gmit.edu.in
+"HANSABA COLLEGE OF ENGIEERING AND TECHNOLOGY, SIDDHPUR",Yes,Yes,Yes,https://gokuluniversity.ac.in/hcet
+"HASMUKH GOSWAMI COLLEGE OF ENGG, VAHELAL",Yes,Yes,Yes,https://hgce.org
+"HJD INSTITUTE OF TECHNICAL EDUCATION AND RESERCH, KERA",Yes,Yes,Yes,https://hjdinstitute.org
+"INDUS INSTITUTE OF TECH. & ENGG., RACHARDA, AHMEDABAD",Yes,Yes,Yes,https://indusuni.ac.in
+"INSTITUTE OF ADVANCED RESEARCH, GANDHINAGAR",Yes,Yes,Yes,https://iar.ac.in
+"INSTITUTE OF INFRASTRUCTURE,TECHNOLOGY,RESEARCH AND MANAGEMENT(IITRAM),AHMEDABAD",Yes,Yes,Yes,https://iitram.ac.in
+"INSTITUTE OF TECHNOLOGY, NIRMA UNIVERSITY OF SCIENCE & TECHNOLOGY, AHMEDABAD",Yes,Yes,Yes,https://nirmauni.ac.in
+"Ipcowala Institute Of Engineering And Technology Dharmaj",Yes,Yes,Yes,https://iietdharmaj.ac.in
+"JG UNIVERSITY - SCHOOL OF ENGINEERING, AHMEDABAD",Yes,Yes,Yes,https://jguni.in
+"K.J. INSTITUTE OF ENGG. AND TECH., SAVALI",Yes,Yes,Yes,https://kjit.org
+"KALOL INSTITUTE OF TECH. & RESEARCH CENTER ,KALOL",Yes,Yes,Yes,https://kirc.ac.in
+"KANKESHWARI DEVI COLLEGE OF ENGINEERING, JAMNAGAR",Yes,Yes,Yes,https://kdce.in
+"KRISHNA SCHOOL OF EMERGING TECHNOLOGY & APPLIED RESEARCH (FORMERLY KNOWN AS BABARIA INSTITUTE OF TECHNOLOGY)",Yes,Yes,Yes,https://bitseducampus.org
 "L.D.COLLEGE OF ENGINEERING, AHMEDABAD",Yes,Yes,Yes,https://ldce.ac.in
-"L.D.College Of Engineering, Ahmedabad",Yes,Yes,Yes,https://ldce.ac.in
-"L.D.R.P. INSTITUTE OF TECH. & RESEARCH., GANDHINAGAR",Yes,Yes,Yes,
-"L.D.R.P. Institute Of Tech. & Research., Gandhinagar",Yes,Yes,Yes,
-"L.E.COLLEGE ,MORBI",Yes,Yes,Yes,
-"L.E.College ,Morbi",Yes,Yes,Yes,
-"L.E.College, Morbi",Yes,Yes,Yes,
-"L.J. INSTITUTE OF ENGG AND TECH., AHMEDABAD",Yes,Yes,Yes,
-"L.J. Institute Of Engg And Tech., Ahmedabad",Yes,Yes,Yes,
-"LALJIBHAI CHATURBHAI INSTITUTE OF TECH., BHANDU, MAHESANA",Yes,Yes,Yes,
-"LAXMI INSTITUTE OF TECHNOLOGY, SARIGAM, VALSAD",Yes,Yes,Yes,
-"LCIT, Bhandu",No,No,No,
-"LDCE, Ahmedabad",No,No,No,https://ldce.ac.in
-"LDRP, GNAGAR",No,No,No,
-"LEC, MORBI",No,No,No,
-"LJIET, Ahmedabad",No,No,No,https://www.ljiet.ac.in
-"LTIET, Rajkot",No,No,No,
-"Laljibhai Chaturbhai Institute Of Tech., Bhandu, Mahesana",Yes,Yes,Yes,
-"Laxmi Institute Of Technology, Sarigam, Valsad",Yes,Yes,Yes,
-"Laxmi, Valsad",No,No,No,
-"MADHUBEN & BHANUBHAI PATEL INSTITUTE OF TECHNOLOGY, NEW V.V.NAGAR",Yes,Yes,Yes,
-"MAHATMA GANDHI INSTITUTE OF TECHNICAL EDUCATION & RESEARCH CENTRE, NAVSARI",Yes,Yes,Yes,
-"MAHAVIR SWAMI COLLEGE OF ENGINEERING & TECHNOLOGY, BHARTHANA-VESU, SURAT",Yes,Yes,Yes,
-"MARWADI EDUCATION FOUNDATION'S GROUP OF INSTITUTIONS - FACULTY OF ENGINEERING & TECHNOLOGY, RAJKOT",Yes,Yes,Yes,
-"MBPIT, VVNagar",No,No,No,
-"MEC, BESNA",No,No,No,
-"MEFGI-FOE, Rajkot",No,No,No,
-"MEFGI-FOT, Rajkot",No,No,No,
-"MERCHANT ENGG. COLLEGE, BASNA. VISNAGAR",Yes,Yes,Yes,
-"MGIT, Navsari",No,No,No,
-"MSCET, Vesu",No,No,No,
-"MSU (GIA), Vadodara",No,No,No,https://msubaroda.ac.in
-"Madhuben & Bhanubhai Patel Institute of Technology, New V.V.Nagar",Yes,Yes,Yes,
-"Mahavir Swami College Of Engineering & Technology, Bharthana-Vesu, Surat",Yes,Yes,Yes,
-"Marwadi Edu. Foundation Group Of Institutions, Faculty Of Engg., Rajkot",No,No,No,
-"Marwadi Edu. Foundation Group Of Institutions, Faculty Of Tech., Rajkot",No,No,No,
-"Marwadi Education Foundation's Group of Institutions - Faculty of Engineering & Technology, Rajkot",Yes,Yes,Yes,
-"Merchant Engg. College, Basna. Visnagar",Yes,Yes,Yes,
-"NARNARAYAN SHASTRI INSTITUTE OF TECHNOLOGY, JETALPUR, AHMEDABAD",Yes,Yes,Yes,
-"NEOTECH INSTITUTE OF TECHNOLOGY, VIROD, VADODARA",Yes,Yes,Yes,
-"NEW L. J. INSTITUTE OF ENGINEERING AND TECHNOLOGY, AHMEDABAD",Yes,Yes,Yes,
-"NLJIET, Ahmedabad",No,No,No,
-"NOBLE ENGINEERING COLLEGE, JUNAGADH",Yes,Yes,Yes,
-"NSIT, Jetalpur",No,No,No,
-"Narnarayan Shastri Institute of Technology, Jetalpur, Ahmedabad",Yes,Yes,Yes,
-"Navrachana, Vadodara",No,No,No,
-"Neotech Institute of Technology, Virod, Vadodara",Yes,Yes,Yes,
-"Neotech, Vadodara",No,No,No,
-"New L. J. Institute Of Engineering And Technology, Ahmedabad",Yes,Yes,Yes,
-"New LJ, Ahmedabad",No,No,No,
-"Nirma Uni, Ahmedabad",No,No,No,https://nirmauni.ac.in
-"Noble Engineering College, Junagadh",Yes,Yes,Yes,
-"Noble Star Engineering College, Makhiyala, Junagadh",Yes,Yes,Yes,
-"Noble, Junagadh",No,No,No,
-"OM ENGINEERING COLLEGE JUNAGADH",Yes,Yes,Yes,
-"OMEC, Junagadh",No,No,No,
-"OMIT, Shahera",No,No,No,
-"Om Engineering College Junagadh",Yes,Yes,Yes,
-"Om Engineering College, Junagadh",Yes,Yes,Yes,
-"Om Institute Of Technology, Shahera, Dist:Panchmahal",Yes,Yes,Yes,
-"P.P. SAVANI SCHOOL OF ENGINEERING, P.P. SAVANI UNIVERSITY, KOSAMBA",Yes,Yes,Yes,
-"P.P. Savani School of Engineering, P.P. Savani University, Kosamba",Yes,Yes,Yes,https://www.ppsavani.ac.in
-"PACIFIC SCHOOL OF ENGINEERING, SURAT",Yes,Yes,Yes,
-"Pacific School Of Engineering, Surat",Yes,Yes,Yes,
-"Pacific, Surat",No,No,No,
-"Pandit Deendayal Energy University ,Gandhinagar",Yes,Yes,Yes,
-"Pandit Deendayal Energy University, Gandhinagar",Yes,Yes,Yes,
-"ParekhEnggCol., Mahuva",No,No,No,
+"L.D.R.P. INSTITUTE OF TECH. & RESEARCH., GANDHINAGAR",Yes,Yes,Yes,https://www.ldrp.ac.in
+"L.E.COLLEGE ,MORBI",Yes,Yes,Yes,https://www.lecollege.ac.in
+"L.J. INSTITUTE OF ENGG AND TECH., AHMEDABAD",Yes,Yes,Yes,https://www.ljiet.ac.in
+"LALJIBHAI CHATURBHAI INSTITUTE OF TECH., BHANDU, MAHESANA",Yes,Yes,Yes,https://lcit.org
+"LAXMI INSTITUTE OF TECHNOLOGY, SARIGAM, VALSAD",Yes,Yes,Yes,https://lit.laxmi.edu.in
+"MADHUBEN & BHANUBHAI PATEL INSTITUTE OF TECHNOLOGY, NEW V.V.NAGAR",Yes,Yes,Yes,https://www.mbict.ac.in
+"MAHATMA GANDHI INSTITUTE OF TECHNICAL EDUCATION & RESEARCH CENTRE, NAVSARI",Yes,Yes,Yes,https://mgiter.ac.in
+"MARWADI EDUCATION FOUNDATION'S GROUP OF INSTITUTIONS - FACULTY OF ENGINEERING & TECHNOLOGY, RAJKOT",Yes,Yes,Yes,https://www.marwadiuniversity.ac.in
+"MERCHANT ENGG. COLLEGE, BASNA. VISNAGAR",Yes,Yes,Yes,http://www.mecbasna.ac.in
+"NARNARAYAN SHASTRI INSTITUTE OF TECHNOLOGY, JETALPUR, AHMEDABAD",Yes,Yes,Yes,https://nsit.ac.in
+"NEOTECH INSTITUTE OF TECHNOLOGY, VIROD, VADODARA",Yes,Yes,Yes,https://neotech.ac.in
+"NOBLE ENGINEERING COLLEGE, JUNAGADH",Yes,Yes,Yes,https://ngivbt.edu.in
+"OM ENGINEERING COLLEGE JUNAGADH",Yes,Yes,Yes,https://omeducation.edu.in
+"Om Institute Of Technology, Shahera, Dist:Panchmahal",Yes,Yes,Yes,http://www.omit.ac.in
+"P.P. SAVANI SCHOOL OF ENGINEERING, P.P. SAVANI UNIVERSITY, KOSAMBA",Yes,Yes,Yes,https://www.ppsavani.ac.in
+"PACIFIC SCHOOL OF ENGINEERING, SURAT",Yes,Yes,Yes,https://www.pacific-soe.ac.in
+"Pandit Deendayal Energy University ,Gandhinagar",Yes,Yes,Yes,https://www.pdpu.ac.in
 "Parul Institute of Engineering & Technology, Waghodia, Vadodara",Yes,Yes,Yes,https://paruluniversity.ac.in
-"Parul Institute of Technology, Waghodia, Vadodara",Yes,Yes,Yes,https://paruluniversity.ac.in
-"Prime Institute of Engineering and Technology, Jalalpore, Navsari",Yes,Yes,Yes,
-"PrimeIET, Navsari",No,No,No,
-"R.K. UNIVERSITY - SCHOOL OF ENGINEERING, RAJKOT",Yes,Yes,Yes,
-"R.K. University - School of Engineering, Rajkot",Yes,Yes,Yes,
-"RNGPIT, Isroli",No,No,No,
-"Rai School of Engineering, Dholka, Ahmedabad",Yes,Yes,Yes,
-"S.P.B. PATEL ENGG. COLLEGE, (SAFFRONY), LINCH, MEHSANA",Yes,Yes,Yes,
-"S.P.B. Patel Engg. College, (Saffrony), Linch, Mehsana",Yes,Yes,Yes,
-"S.S.AGRAWAL INSTITUTE OF ENGINEERING & TECHNOLOGY NAVSARI",Yes,Yes,Yes,
-"SAL COLLEGE OF ENGINEERING , AHMEDABAD",Yes,Yes,Yes,
-"SAL ENGINEERING &TECHNICAL INSTITUTE, SOLA, AHMEDABAD",Yes,Yes,Yes,
-"SAL INSTITUTE OF TECH. & ENGG. RESEARCH, AHMEDABAD",Yes,Yes,Yes,
-"SALCE, Ahmedabad",No,No,No,
-"SALITER, Ahmedabad",No,No,No,
-"SANJAYBHAI RAJGURU COLLEGE OF ENGG. , RAJKOT",Yes,Yes,Yes,
-"SANKALCHAND  PATEL COLLEGE OF  ENGG.,  VISNAGAR",Yes,Yes,Yes,
-"SARDAR PATEL COLLEGE OF ENGINEERING, BAKROL ANAND",Yes,Yes,Yes,
-"SARDAR VALLABHBHAI GLOBAL University - UCP Institute of Technology, Ahmedabad",Yes,Yes,Yes,
-"SARDAR VALLABHBHAI PATEL INSTITUTE OF TECH.,VASAD",Yes,Yes,Yes,
-"SARVAJANIK COLLEGE OF ENGG. & TECH. , SURAT",Yes,Yes,Yes,
-"SCET, Kalol",No,No,No,
-"SCET, Surat",No,No,No,
-"SCHOOL OF ENGINEERING AND TECHNOLOGY, NAVRACHANA UNIVERSITY, VADODARA",Yes,Yes,Yes,
-"SCHOOL OF ENGINEERING, INDRASHIL UNIVERSITY, KADI",Yes,Yes,Yes,
-"SCHOOL OF SCIENCE & ENGINEERING., Navrachana University, Vadodara",Yes,Yes,Yes,
-"SCHOOL OF TECHNOLOGY, GSFC UNIVERSITY,  VADODARA",Yes,Yes,Yes,
-"SCHOOL OF TECHNOLOGY, GSFC UNIVERSITY, VADODARA",Yes,Yes,Yes,
-"SHANKERSINH VAGHELA BAPU INSTITUTE OF TECH., UNAVA, GANDHINAGAR",Yes,Yes,Yes,
-"SHANTILAL SHAH ENGINEERING COLLEGE ,BHAVNAGAR",Yes,Yes,Yes,
-"SHGEC, Amreli",No,No,No,
-"SHREE DHANVANTARY COLLEGE OF ENGINEERING & TECHNOLOGY, KIM",Yes,Yes,Yes,
-"Shree Parekh Engineeirng College, Mahuva",Yes,Yes,Yes,
-"SHREE SWAMINARAYAN INSTITUTE OF TECHNOLOGY, BHAT, GANDHINAGAR",Yes,Yes,Yes,
-"SHRI LABHUBHAI TRIVEDI INSTITUTE OF ENGINEERING AND TECHNOLOGY, RAJKOT",Yes,Yes,Yes,
-"SHRI SADVIDHYA MANDAL INSTITUTE OF TECH., BHARUCH",Yes,Yes,Yes,
-"SHRI SITARAM N PATEL INST. OF TECH. & RES. (SNPIT), BARDOLI, UMRAKH (VIDHYABHARTI TRUST)",No,No,No,
-"SHRI SWAMI ATMANAND SARASWATI INSTITUTE OF TECH., SURAT",Yes,Yes,Yes,
-"SHROFF S.R.ROTARY INST. OF CHEMICAL TECHNOLOGY, VATATIA,BHARUCH",Yes,Yes,Yes,
-"SIGMA INSTITUTE OF ENGG., BAKROL",Yes,Yes,Yes,
-"SILVER OAK COLLEGE OF ENGG., & TECH. (WITHIN AMHEDABAD MUNICIPAL CORPORATION LIMIT), AHMEDABAD",Yes,Yes,Yes,
-"SKPCE, Visnagar",No,No,No,
-"SMT. S.R. PATEL ENGG. COLLEGE, DABHI, UNJHA",Yes,Yes,Yes,
-"SMT. SHANTABEN HARIBHAI GAJERA ENGINEERING COLLEGE  Amreli",Yes,Yes,Yes,
-"SPCE, Bakrol",No,No,No,
-"SPEC, Linch",No,No,No,
-"SRCE, Rajkot",No,No,No,
-"SRPATEL, Dabhi",No,No,No,
-"SSASIT, Surat",No,No,No,
-"SSEC, Bhavnagar",No,No,No,
-"SSIT, Bhat",No,No,No,
-"SSMIT, Bharuch",No,No,No,
-"SSNPITR, Umrakh",No,No,No,
-"SVBIT, Unava",No,No,No,
-"SVIT, Vasad",No,No,No,
-"SVMIT, Bharuch",No,No,No,
-"SWAMINARAYAN COLLEGE OF ENGG. & TECH., KALOL",Yes,Yes,Yes,
-"SWARRNIM INSTITUTE OF TECHNOLOGY",Yes,Yes,Yes,
-"Sal College Of Engineering , Ahmedabad",Yes,Yes,Yes,
-"Sal Engineering &Technical Institute, Sola, Ahmedabad",Yes,Yes,Yes,
-"Sal Institute Of Tech. & Engg. Research, Ahmedabad",Yes,Yes,Yes,
-"SalETI, Ahmedabad",No,No,No,
-"Sankalchand  Patel College Of  Engg.,  Visnagar",Yes,Yes,Yes,
-"Sardar Patel College Of Engineering, Bakrol Anand",Yes,Yes,Yes,
-"Sardar Vallabhbhai Patel Institute Of Tech., Vasad",Yes,Yes,Yes,
-"Sardar Vallabhbhai Patel Institute Of Tech.,Vasad",Yes,Yes,Yes,
-"Sarvajanik College Of Engg. & Tech. , Surat",Yes,Yes,Yes,
-"Satsangi, Vadasma",No,No,No,
-"School Of Science & Engineering., Navrachana University, Vadodara",Yes,Yes,Yes,
-"School Of Technology, GSFC University, Vadodara",Yes,Yes,Yes,
-"School of Engineering and Applied Science, Ahmedabad University, Ahmedabad",Yes,Yes,Yes,
-"School of Engineering, Indrashil University, Kadi",Yes,Yes,Yes,
+"Prime Institute of Engineering and Technology, Jalalpore, Navsari",Yes,Yes,Yes,http://primeiet.in
+"R.K. UNIVERSITY - SCHOOL OF ENGINEERING, RAJKOT",Yes,Yes,Yes,https://rku.ac.in
+"Rai School of Engineering, Dholka, Ahmedabad",Yes,Yes,Yes,https://raiuniversity.edu
+"S.P.B. PATEL ENGG. COLLEGE, (SAFFRONY), LINCH, MEHSANA",Yes,Yes,Yes,https://www.saffrony.ac.in
+"S.S.AGRAWAL INSTITUTE OF ENGINEERING & TECHNOLOGY NAVSARI",Yes,Yes,Yes,https://ssagrawal.org
+"SAL COLLEGE OF ENGINEERING , AHMEDABAD",Yes,Yes,Yes,https://www.sal.edu.in
+"SANJAYBHAI RAJGURU COLLEGE OF ENGG. , RAJKOT",Yes,Yes,Yes,http://srec.ac.in
+"SANKALCHAND PATEL COLLEGE OF ENGG., VISNAGAR",Yes,Yes,Yes,https://spu.ac.in
+"SARDAR PATEL COLLEGE OF ENGINEERING, BAKROL ANAND",Yes,Yes,Yes,https://spec.edu.in
+"SARDAR VALLABHBHAI GLOBAL University - UCP Institute of Technology, Ahmedabad",Yes,Yes,Yes,https://svgu.ac.in
+"SARDAR VALLABHBHAI PATEL INSTITUTE OF TECH.,VASAD",Yes,Yes,Yes,https://svitvasad.ac.in
+"SARVAJANIK COLLEGE OF ENGG. & TECH. , SURAT",Yes,Yes,Yes,https://scet.ac.in
+"SCHOOL OF ENGINEERING AND TECHNOLOGY, NAVRACHANA UNIVERSITY, VADODARA",Yes,Yes,Yes,https://nuv.ac.in
+"SCHOOL OF ENGINEERING, INDRASHIL UNIVERSITY, KADI",Yes,Yes,Yes,https://indrashiluniversity.edu.in
+"SCHOOL OF TECHNOLOGY, GSFC UNIVERSITY, VADODARA",Yes,Yes,Yes,https://www.gsfcuni.edu.in
 "School of Engineering, Plastindia International University, Vapi",Yes,Yes,Yes,https://www.piuvapi.ac.in
-"Shankersinh Vaghela Bapu Institute Of Tech., Unava, Gandhinagar",Yes,Yes,Yes,
-"Shantilal Shah Engineering College ,Bhavnagar",Yes,Yes,Yes,
-"Shantilal Shah Engineering College, Bhavnagar",Yes,Yes,Yes,
-"Shree Parekh Engineeirng College, Mahuva",Yes,Yes,Yes,
-"Shree Swaminarayan Institute Of Technology, Bhat, Gandhinagar",Yes,Yes,Yes,
-"Shri J M Sabva Institute Of Engineering And Technology, Botad",Yes,Yes,Yes,
-"Shri Labhubhai Trivedi Institute Of Engineering And Technology, Rajkot",Yes,Yes,Yes,
-"Shri Sadvidhya Mandal Institute Of Tech., Bharuch",Yes,Yes,Yes,
-"Shri Satsangi Saketdham `Ram Ashram` Group Of Institutions, Vadasma",No,No,No,
-"Shri Sitaram N Patel Inst. Of Tech. & Res. (Vidhyabharti Trust), Umrakh",No,No,No,
-"Shri Swami Atmanand Saraswati Institute Of Tech., Surat",Yes,Yes,Yes,
-"Shroff S.R.Rotary Inst. Of Chemical Technology, Vatatia,Bharuch",Yes,Yes,Yes,
-"Shroff, Bharuch",No,No,No,
-"Sigma Institute Of Engg., Bakrol",Yes,Yes,Yes,
-"Sigma Uni. Bakrol, Vadodara",No,No,No,
-"Sigma, Bakrol",No,No,No,
-"Silver Oak College Of Engg., & Tech. (WITHIN AMHEDABAD MUNICIPAL CORPORATION LIMIT), Ahmedabad",Yes,Yes,Yes,
-"Silver Oak College Of Engg., & Tech. (Within Amhedabad Municipal Corporation Limit), Ahmedabad",Yes,Yes,Yes,
-"Silver Oak, Ahmedabad",No,No,No,
-"Smt. S.R. Patel Engg. College, Dabhi, Unjha",Yes,Yes,Yes,
-"Subhash, Junagadh",No,No,No,
-"Swaminarayan College Of Engg. & Tech., Kalol",Yes,Yes,Yes,
-"Swarrnim Institute of Technology",Yes,Yes,Yes,
-"Swarrnim, Bhoyan",No,No,No,
-"Tatva, Modasa",No,No,No,
-"UNITEDWORLD INSTITUTE OF TECHNOLOGY, UVARSAD, GANDHINAGAR",Yes,Yes,Yes,
-"Unitedworld School of Computational Intelligence, Uvarsad, Gandhinagar",No,No,No,
-"Unitedworld, Uvarsad",No,No,No,https://unitedworld.edu.in
-"V.V.P. ENGINEERING COLLEGE, RAJKOT",Yes,Yes,Yes,
-"V.V.P. Engineering College, Rajkot",Yes,Yes,Yes,https://www.vveec.ac.in
-"VADODARA INSTITUTE OF ENGINEERING, KOTAMBI, WAGHODIYA, VADODARA",Yes,Yes,Yes,
-"VEERAYATAN INSTITUTE OF ENGINEERING TECHNOLOGY & RESEARCH., Mandvi",Yes,Yes,Yes,
-"VEERAYATAN INSTITUTE OF ENGINEERING, MANDVI",Yes,Yes,Yes,
-"VGEC, Ahmedabad",No,No,No,https://vgecg.ac.in
-"VIDHYADEEP INSTITUTE OF  ENGINEERING & TECHNOLOGY, ANITA(KIM), SURAT",Yes,Yes,Yes,
-"VIDUSH SOMANY INSTITUTE OF TECH. & RES., KADI",Yes,Yes,Yes,
-"VIE, Kotambi",No,No,No,https://www.vierct.ac.in
+"SHANKERSINH VAGHELA BAPU INSTITUTE OF TECH., UNAVA, GANDHINAGAR",Yes,Yes,Yes,https://bapugkv.ac.in
+"SHANTILAL SHAH ENGINEERING COLLEGE ,BHAVNAGAR",Yes,Yes,Yes,https://www.ssgec.ac.in
+"SHREE DHANVANTARY COLLEGE OF ENGINEERING & TECHNOLOGY, KIM",Yes,Yes,Yes,https://sdcet.org.in
+"Shree Parekh Engineeirng College, Mahuva",Yes,Yes,Yes,http://www.parekhengineering.ac.in
+"SHREE SWAMINARAYAN INSTITUTE OF TECHNOLOGY, BHAT, GANDHINAGAR",Yes,Yes,Yes,https://ssit.co.in
+"Shri J M Sabva Institute Of Engineering And Technology, Botad",Yes,Yes,Yes,http://jmsabva.com
+"SHRI LABHUBHAI TRIVEDI INSTITUTE OF ENGINEERING AND TECHNOLOGY, RAJKOT",Yes,Yes,Yes,https://sltiet.edu.in
+"SHRI SADVIDHYA MANDAL INSTITUTE OF TECH., BHARUCH",Yes,Yes,Yes,https://svmit.ac.in
+"Shri Satsangi Saketdham 'Ram Ashram' Group Of Institutions, Vadasma",No,No,No,http://www.satsangicampus.org
+"SHRI SITARAM N PATEL INST. OF TECH. & RES. (SNPIT), BARDOLI, UMRAKH (VIDHYABHARTI TRUST)",No,No,No,https://snpitrc.ac.in
+"SHRI SWAMI ATMANAND SARASWATI INSTITUTE OF TECH., SURAT",Yes,Yes,Yes,https://ssasit.ac.in
+"SHROFF S.R.ROTARY INST. OF CHEMICAL TECHNOLOGY, VATATIA,BHARUCH",Yes,Yes,Yes,https://srict.in
+"SILVER OAK COLLEGE OF ENGG., & TECH. (WITHIN AMHEDABAD MUNICIPAL CORPORATION LIMIT), AHMEDABAD",Yes,Yes,Yes,https://silveroakuni.ac.in
+"SMT. S.R. PATEL ENGG. COLLEGE, DABHI, UNJHA",Yes,Yes,Yes,https://srpec.org.in
+"SMT. SHANTABEN HARIBHAI GAJERA ENGINEERING COLLEGE Amreli",Yes,Yes,Yes,https://amreli.gajeratrust.org
+"SWAMINARAYAN COLLEGE OF ENGG. & TECH., KALOL",Yes,Yes,Yes,https://scetkalol.in
+"SWARRNIM INSTITUTE OF TECHNOLOGY",Yes,Yes,Yes,https://www.swarrnim.edu.in
+"UNITEDWORLD INSTITUTE OF TECHNOLOGY, UVARSAD, GANDHINAGAR",Yes,Yes,Yes,https://unitedworld.edu.in
+"V.V.P. ENGINEERING COLLEGE, RAJKOT",Yes,Yes,Yes,https://www.vveec.ac.in
+"VADODARA INSTITUTE OF ENGINEERING, KOTAMBI, WAGHODIYA, VADODARA",Yes,Yes,Yes,https://www.vierct.ac.in
+"VEERAYATAN INSTITUTE OF ENGINEERING, MANDVI",Yes,Yes,Yes,https://veerayatan.org
+"VIDHYADEEP INSTITUTE OF ENGINEERING & TECHNOLOGY, ANITA(KIM), SURAT",Yes,Yes,Yes,https://vidhyadeepuni.ac.in
+"VIDUSH SOMANY INSTITUTE OF TECH. & RES., KADI",Yes,Yes,Yes,https://vsitr.ac.in
 "VISHWAKARMA GOVERNMENT ENGINEERING COLLEGE, CHANDKHEDA,GANDHINAGAR",Yes,Yes,Yes,https://vgecg.ac.in
-"VRGCET, Porbandar",No,No,No,
-"VSITR, Kadi",No,No,No,
-"VVP, Rajkot",No,No,No,https://www.vveec.ac.in
-"Vadodara Institute of Engineering, Kotambi, Waghodiya, Vadodara",Yes,Yes,Yes,
-"Veerayatan,  Mandvi",No,No,No,
-"Vidhyadeep Institute of  Engineering & Technology, Anita(Kim), Surat",Yes,Yes,Yes,
-"Vidhyadeep, Kim",No,No,No,
-"Vidush Somany Institute Of Tech. & Res., Kadi",Yes,Yes,Yes,
-"Vishwakarma Government Engineering College, Chandkheda, Gandhinagar",Yes,Yes,Yes,
-"Vishwakarma Government Engineering College, Chandkheda,Gandhinagar",Yes,Yes,Yes,https://vgecg.ac.in

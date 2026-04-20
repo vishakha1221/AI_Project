@@ -1,5 +1,6 @@
 from pathlib import Path
 from functools import lru_cache
+from math import ceil
 import sys
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,9 +13,13 @@ import pandas as pd
 from flask import Flask, jsonify, request, send_from_directory
 
 from backend.preprocess import (
+    INSTITUTE_MASTER_FILE_V2,
     encode_training_data,
+    infer_city,
     load_institute_search_dataset,
     load_prediction_dataset,
+    normalize_text,
+    standardize_institute_name,
     standardize_category,
     standardize_quota,
 )
@@ -314,9 +319,31 @@ def options():
     """Return filter options for the institute search UI."""
     dataset = load_institute_search_dataset()
     prediction_dataset = load_prediction_dataset()
+
+    allowed_keys = None
+    master_institutes = None
+    if INSTITUTE_MASTER_FILE_V2.exists():
+        institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2, usecols=["institute_name"])
+        institute_master["institute_name"] = (
+            institute_master["institute_name"]
+            .fillna("")
+            .astype(str)
+            .map(standardize_institute_name)
+        )
+        institute_master["_key"] = institute_master["institute_name"].map(normalize_text)
+        institute_master = institute_master[institute_master["_key"] != ""].drop_duplicates(subset=["_key"])
+        master_institutes = institute_master["institute_name"].tolist()
+        allowed_keys = set(institute_master["_key"].tolist())
+        dataset["_institute_key"] = dataset["institute_name"].astype(str).map(normalize_text)
+        dataset = dataset[dataset["_institute_key"].isin(allowed_keys)]
+
     branches = sorted(_unique_values(dataset, "course_name"))
-    cities = sorted(_unique_values(dataset, "city"))
-    institutes = sorted(_unique_values(dataset, "institute_name"))
+    if master_institutes is not None:
+        institutes = sorted(master_institutes)
+        cities = sorted({infer_city(name) for name in master_institutes if str(name).strip()})
+    else:
+        cities = sorted(_unique_values(dataset, "city"))
+        institutes = sorted(_unique_values(dataset, "institute_name"))
     boys_hostel_options = sorted(_unique_values(dataset, "boys_hostel"))
     girls_hostel_options = sorted(_unique_values(dataset, "girls_hostel"))
     categories = sorted(_unique_values(prediction_dataset, "category"))
@@ -326,7 +353,6 @@ def options():
             "branches": branches,
             "cities": cities,
             "institutes": institutes,
-            "hostel_available": ["Yes", "No"],
             "boys_hostel": boys_hostel_options,
             "girls_hostel": girls_hostel_options,
             "categories": categories,
@@ -338,48 +364,131 @@ def options():
 @app.route("/api/filter")
 def filter_institutes():
     """Filter the admissions dataset by institute, branch, and hostel availability."""
-    dataset = load_institute_search_dataset().copy()
+    admissions_dataset = load_institute_search_dataset().copy()
     branch = request.args.get("branch", "").strip()
     city = request.args.get("city", "").strip()
     institute_name = request.args.get("institute_name", "").strip()
-    hostel_available = request.args.get("hostel_available", "").strip()
     boys_hostel = request.args.get("boys_hostel", "").strip()
     girls_hostel = request.args.get("girls_hostel", "").strip()
-    limit = request.args.get("limit", "20")
+    limit = request.args.get("limit", "10")
+    page = request.args.get("page", "1")
 
-    if branch:
-        dataset = dataset[dataset["course_name"].astype(str).str.strip().str.casefold() == branch.casefold()]
-    if city and "city" in dataset.columns:
-        dataset = dataset[dataset["city"].astype(str).str.strip().str.casefold() == city.casefold()]
-    if institute_name:
-        dataset = dataset[dataset["institute_name"].astype(str).str.strip().str.casefold() == institute_name.casefold()]
-    if hostel_available and "hostel_available" in dataset.columns:
-        dataset = dataset[dataset["hostel_available"].astype(str).str.strip().str.casefold() == hostel_available.casefold()]
-    if boys_hostel and "boys_hostel" in dataset.columns:
-        dataset = dataset[dataset["boys_hostel"].astype(str).str.strip().str.casefold() == boys_hostel.casefold()]
-    if girls_hostel and "girls_hostel" in dataset.columns:
-        dataset = dataset[dataset["girls_hostel"].astype(str).str.strip().str.casefold() == girls_hostel.casefold()]
+    # Enforce institue_master1.csv as the source-of-truth when available.
+    if INSTITUTE_MASTER_FILE_V2.exists():
+        institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2, usecols=["institute_name"])
+        institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2).copy()
+        for column in ["institute_name", "boys_hostel", "girls_hostel", "official_website"]:
+            if column not in institute_master.columns:
+                institute_master[column] = ""
+
+        institute_master["institute_name"] = (
+            institute_master["institute_name"].fillna("").astype(str).map(standardize_institute_name)
+        )
+        institute_master["boys_hostel"] = institute_master["boys_hostel"].fillna("").astype(str).str.strip()
+        institute_master["girls_hostel"] = institute_master["girls_hostel"].fillna("").astype(str).str.strip()
+        institute_master["official_website"] = institute_master["official_website"].fillna("").astype(str).str.strip()
+        institute_master["city"] = institute_master["institute_name"].map(infer_city)
+        institute_master["_dedupe_key"] = institute_master["institute_name"].map(normalize_text)
+        institute_master = institute_master[institute_master["_dedupe_key"] != ""].copy()
+
+        institute_master["_has_website"] = institute_master["official_website"].astype(str).str.strip() != ""
+        institute_master = institute_master.sort_values(["_dedupe_key", "_has_website"], ascending=[True, False])
+        institute_master = institute_master.drop_duplicates(subset=["_dedupe_key"]) 
+
+        # Branch filter is derived from admissions but applied on master institute keys.
+        if branch and "course_name" in admissions_dataset.columns:
+            branch_filtered = admissions_dataset[
+                admissions_dataset["course_name"].astype(str).str.strip().str.casefold() == branch.casefold()
+            ].copy()
+            branch_keys = set(branch_filtered["institute_name"].astype(str).map(normalize_text).tolist())
+            institute_master = institute_master[institute_master["_dedupe_key"].isin(branch_keys)]
+
+        if city:
+            institute_master = institute_master[
+                institute_master["city"].astype(str).str.strip().str.casefold() == city.casefold()
+            ]
+        if institute_name:
+            institute_master = institute_master[
+                institute_master["institute_name"].astype(str).str.strip().str.casefold() == institute_name.casefold()
+            ]
+        if boys_hostel:
+            institute_master = institute_master[
+                institute_master["boys_hostel"].astype(str).str.strip().str.casefold() == boys_hostel.casefold()
+            ]
+        if girls_hostel:
+            institute_master = institute_master[
+                institute_master["girls_hostel"].astype(str).str.strip().str.casefold() == girls_hostel.casefold()
+            ]
+
+        filtered = institute_master[["institute_name", "city", "boys_hostel", "girls_hostel", "official_website", "_dedupe_key"]].copy()
+    else:
+        dataset = admissions_dataset
+        if branch:
+            dataset = dataset[dataset["course_name"].astype(str).str.strip().str.casefold() == branch.casefold()]
+        if city and "city" in dataset.columns:
+            dataset = dataset[dataset["city"].astype(str).str.strip().str.casefold() == city.casefold()]
+        if institute_name:
+            dataset = dataset[dataset["institute_name"].astype(str).str.strip().str.casefold() == institute_name.casefold()]
+        if boys_hostel and "boys_hostel" in dataset.columns:
+            dataset = dataset[dataset["boys_hostel"].astype(str).str.strip().str.casefold() == boys_hostel.casefold()]
+        if girls_hostel and "girls_hostel" in dataset.columns:
+            dataset = dataset[dataset["girls_hostel"].astype(str).str.strip().str.casefold() == girls_hostel.casefold()]
+
+        columns = [
+            column
+            for column in [
+                "institute_name",
+                "city",
+                "boys_hostel",
+                "girls_hostel",
+                "official_website",
+            ]
+            if column in dataset.columns
+        ]
+
+        filtered = dataset[columns].fillna("")
+        filtered["institute_name"] = filtered["institute_name"].astype(str).str.strip()
+        filtered["_dedupe_key"] = filtered["institute_name"].map(normalize_text)
+        if "official_website" in filtered.columns:
+            filtered["_has_website"] = filtered["official_website"].astype(str).str.strip() != ""
+            filtered = filtered.sort_values(["_dedupe_key", "_has_website"], ascending=[True, False])
+        filtered = filtered.drop_duplicates(subset=["_dedupe_key"])
+        filtered = filtered.sort_values(["institute_name"], ascending=[True])
 
     try:
-        limit_value = max(1, int(limit))
+        limit_value = int(limit)
     except (TypeError, ValueError):
-        limit_value = 20
+        limit_value = 10
 
-    columns = [
-        column
-        for column in [
-            "institute_name",
-            "course_name",
-            "city",
-            "hostel_available",
-            "boys_hostel",
-            "girls_hostel",
-            "official_website",
-        ]
-        if column in dataset.columns
-    ]
-    filtered = dataset[columns].fillna("").drop_duplicates().head(limit_value)
-    return jsonify({"results": filtered.to_dict(orient="records")})
+    try:
+        page_value = int(page)
+    except (TypeError, ValueError):
+        page_value = 1
+
+    limit_value = max(1, min(limit_value, 100))
+    page_value = max(1, page_value)
+
+    total_count = len(filtered)
+    total_pages = max(1, ceil(total_count / limit_value))
+    page_value = min(page_value, total_pages)
+    start_index = (page_value - 1) * limit_value
+    end_index = start_index + limit_value
+    filtered = filtered.iloc[start_index:end_index]
+
+    if "_has_website" in filtered.columns:
+        filtered = filtered.drop(columns=["_has_website"])
+    if "_dedupe_key" in filtered.columns:
+        filtered = filtered.drop(columns=["_dedupe_key"])
+
+    return jsonify(
+        {
+            "results": filtered.to_dict(orient="records"),
+            "page": page_value,
+            "page_size": limit_value,
+            "total": total_count,
+            "total_pages": total_pages,
+        }
+    )
 
 
 def _unique_values(dataframe, column_name):

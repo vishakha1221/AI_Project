@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+from urllib.parse import quote_plus
 
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
@@ -16,48 +17,90 @@ INSTITUTE_MASTER_FILE_V2 = BASE_DIR / "data" / "institue_master1.csv"
 
 CITY_RULES = [
 	("ahmedabad", "Ahmedabad"),
+	("jetalpur", "Ahmedabad"),
+	("vahelal", "Ahmedabad"),
+	("cipet", "Ahmedabad"),
+	("petrochemicals engineering technology", "Ahmedabad"),
 	("surat", "Surat"),
 	("vadodara", "Vadodara"),
 	("rajkot", "Rajkot"),
 	("anand", "Anand"),
 	("vvnagar", "Anand"),
+	("v v nagar", "Anand"),
+	("vallabh vidyanagar", "Anand"),
 	("karamsad", "Anand"),
 	("bakrol", "Anand"),
 	("changa", "Anand"),
+	("dharmaj", "Anand"),
 	("vasad", "Anand"),
 	("gandhinagar", "Gandhinagar"),
+	("gnagar", "Gandhinagar"),
 	("raisan", "Gandhinagar"),
 	("chandkheda", "Ahmedabad"),
 	("moti bhoyan", "Gandhinagar"),
+	("bhoyan", "Gandhinagar"),
+	("unava", "Gandhinagar"),
+	("bhat", "Gandhinagar"),
 	("kalol", "Gandhinagar"),
 	("uvarsad", "Gandhinagar"),
 	("nadiad", "Nadiad"),
+	("charusat", "Anand"),
+	("mahemdabad", "Kheda"),
 	("mehsana", "Mehsana"),
+	("mahesana", "Mehsana"),
 	("kherva", "Mehsana"),
 	("bhandu", "Mehsana"),
 	("linch", "Mehsana"),
+	("visnagar", "Mehsana"),
+	("kadi", "Mehsana"),
+	("dabhi", "Mehsana"),
+	("vadasma", "Mehsana"),
+	("besna", "Mehsana"),
+	("kanera", "Mehsana"),
 	("bhavnagar", "Bhavnagar"),
 	("bharuch", "Bharuch"),
 	("valsad", "Valsad"),
 	("navsari", "Navsari"),
 	("junagadh", "Junagadh"),
+	("makhiyala", "Junagadh"),
 	("amreli", "Amreli"),
+	("mahuva", "Bhavnagar"),
 	("palanpur", "Palanpur"),
+	("siddhpur", "Patan"),
 	("patan", "Patan"),
 	("modasa", "Modasa"),
 	("godhra", "Godhra"),
+	("tuwa", "Godhra"),
+	("shahera", "Godhra"),
 	("dahod", "Dahod"),
 	("bhuj", "Bhuj"),
+	("kera", "Bhuj"),
+	("mandvi", "Bhuj"),
 	("porbandar", "Porbandar"),
+	("jamnagar", "Jamnagar"),
 	("morbi", "Morbi"),
+	("himmatnagar", "Himmatnagar"),
+	("berna", "Himmatnagar"),
+	("sabarkantha", "Khedbrahma"),
 	("khedbrahma", "Khedbrahma"),
+	("khedbrahm", "Khedbrahma"),
 	("bardoli", "Bardoli"),
+	("tarsadi", "Bardoli"),
+	("isroli", "Bardoli"),
+	("umrakh", "Bardoli"),
 	("kosamba", "Kosamba"),
 	("kim", "Kim"),
+	("vesu", "Surat"),
 	("waghodia", "Waghodia"),
 	("kotambi", "Kotambi"),
 	("vapi", "Vapi"),
 	("wadhvan", "Wadhvan"),
+	("surendranagar", "Surendranagar"),
+	("botad", "Botad"),
+	("mevad", "Mehsana"),
+	("savali", "Vadodara"),
+	("khatraj", "Gandhinagar"),
+	("swarrnim", "Gandhinagar"),
 ]
 
 
@@ -359,31 +402,65 @@ def load_institute_search_dataset():
 	admissions["course_name"] = admissions["course_name"].apply(standardize_branch)
 	admissions["admission_field"] = admissions["admission_field"].apply(standardize_branch)
 	admissions["institute_name"] = admissions["institute_name"].apply(standardize_institute_name)
-	master_file = INSTITUTE_MASTER_FILE_V2 if INSTITUTE_MASTER_FILE_V2.exists() else INSTITUTE_MASTER_FILE
-	if not master_file.exists():
+	if not INSTITUTE_MASTER_FILE_V2.exists() and not INSTITUTE_MASTER_FILE.exists():
 		search_data = admissions.copy()
 		search_data["hostel_available"] = ""
 		search_data["boys_hostel"] = ""
 		search_data["girls_hostel"] = ""
-		search_data["official_website"] = ""
+		search_data["official_website"] = search_data["institute_name"].apply(
+			lambda name: f"https://www.google.com/search?q={quote_plus(str(name) + ' official website')}"
+		)
 		search_data["city"] = search_data.get("institute_name", "").apply(infer_city)
 		return search_data
 
-	institute_master = pd.read_csv(master_file)
-	institute_master["institute_name"] = institute_master["institute_name"].fillna("").apply(standardize_institute_name)
 	admissions["join_key"] = admissions["institute_name"].astype(str).map(normalize_text)
-	institute_master["join_key"] = institute_master["institute_name"].astype(str).map(normalize_text)
-	merge_columns = ["join_key", "hostel_available", "boys_hostel", "girls_hostel", "official_website"]
-	merge_columns = [column for column in merge_columns if column in institute_master.columns]
-	merged = admissions.merge(
-		institute_master[merge_columns],
+
+	def _load_master(master_path):
+		if not master_path.exists():
+			return pd.DataFrame(columns=["join_key", "hostel_available", "boys_hostel", "girls_hostel", "official_website"])
+
+		master = pd.read_csv(master_path)
+		if "institute_name" not in master.columns:
+			return pd.DataFrame(columns=["join_key", "hostel_available", "boys_hostel", "girls_hostel", "official_website"])
+
+		master["institute_name"] = master["institute_name"].fillna("").apply(standardize_institute_name)
+		master["join_key"] = master["institute_name"].astype(str).map(normalize_text)
+
+		for column in ["hostel_available", "boys_hostel", "girls_hostel", "official_website"]:
+			if column not in master.columns:
+				master[column] = ""
+
+		master = master[["join_key", "hostel_available", "boys_hostel", "girls_hostel", "official_website"]].fillna("")
+		master["_website_non_empty"] = master["official_website"].astype(str).str.strip() != ""
+		master = master.sort_values(["join_key", "_website_non_empty"], ascending=[True, False])
+		master = master.drop_duplicates(subset=["join_key"])
+		master = master.drop(columns=["_website_non_empty"])
+		return master
+
+	primary_master = _load_master(INSTITUTE_MASTER_FILE_V2)
+	fallback_master = _load_master(INSTITUTE_MASTER_FILE)
+
+	merged = admissions.merge(primary_master, on="join_key", how="left")
+	merged = merged.merge(
+		fallback_master,
 		on="join_key",
 		how="left",
+		suffixes=("", "_fallback"),
 	)
+
 	for column in ["hostel_available", "boys_hostel", "girls_hostel", "official_website"]:
-		if column not in merged.columns:
-			merged[column] = ""
-		merged[column] = merged[column].fillna("")
+		primary_values = merged[column].fillna("").astype(str).str.strip()
+		fallback_values = merged[f"{column}_fallback"].fillna("").astype(str).str.strip()
+		merged[column] = primary_values.where(primary_values != "", fallback_values)
+		merged = merged.drop(columns=[f"{column}_fallback"])
+
+	merged["official_website"] = merged.apply(
+		lambda row: row["official_website"]
+		if str(row["official_website"]).strip()
+		else f"https://www.google.com/search?q={quote_plus(str(row['institute_name']) + ' official website')}",
+		axis=1,
+	)
+
 	merged["city"] = merged["institute_name"].apply(infer_city)
 	merged = merged.drop_duplicates()
 	merged = merged.drop(columns=["join_key"])

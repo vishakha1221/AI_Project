@@ -6,10 +6,17 @@ const filterForm = document.getElementById('filter-form');
 const citySelect = document.getElementById('filter-city');
 const branchSelect = document.getElementById('filter-branch');
 const instituteSelect = document.getElementById('filter-institute');
-const hostelSelect = document.getElementById('filter-hostel');
 const boysHostelSelect = document.getElementById('filter-boys-hostel');
 const girlsHostelSelect = document.getElementById('filter-girls-hostel');
 const filterResults = document.getElementById('filter-results');
+const prevPageButton = document.getElementById('prev-page');
+const nextPageButton = document.getElementById('next-page');
+const pageInfo = document.getElementById('page-info');
+
+const PAGE_SIZE = 10;
+let currentPage = 1;
+let totalPages = 1;
+let activeFilters = {};
 
 async function loadFilterOptions() {
   const response = await fetch('/api/options');
@@ -37,29 +44,17 @@ async function loadFilterOptions() {
     });
   }
 
-  if (Array.isArray(data.boys_hostel)) {
-    boysHostelSelect.innerHTML = '<option value="">All</option>';
-    data.boys_hostel.forEach((value) => {
-      const cleaned = (value || '').trim();
-      if (!cleaned) return;
-      const option = document.createElement('option');
-      option.value = cleaned;
-      option.textContent = cleaned;
-      boysHostelSelect.appendChild(option);
-    });
-  }
+  boysHostelSelect.innerHTML = `
+    <option value="">All</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  `;
 
-  if (Array.isArray(data.girls_hostel)) {
-    girlsHostelSelect.innerHTML = '<option value="">All</option>';
-    data.girls_hostel.forEach((value) => {
-      const cleaned = (value || '').trim();
-      if (!cleaned) return;
-      const option = document.createElement('option');
-      option.value = cleaned;
-      option.textContent = cleaned;
-      girlsHostelSelect.appendChild(option);
-    });
-  }
+  girlsHostelSelect.innerHTML = `
+    <option value="">All</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  `;
 
   data.cities.forEach((city) => {
     const option = document.createElement('option');
@@ -83,55 +78,67 @@ async function loadFilterOptions() {
   });
 }
 
-function renderResults(rows) {
+function renderResults(rows, page = 1, pageSize = PAGE_SIZE) {
   if (!rows.length) {
-    filterResults.innerHTML = '<tr><td colspan="7">No matching institutes found.</td></tr>';
+    filterResults.innerHTML = '<tr><td colspan="4">No matching institutes found.</td></tr>';
     return;
   }
 
+  const startNo = (page - 1) * pageSize;
   filterResults.innerHTML = rows
-    .map((row) => `
+    .map((row, index) => `
       <tr>
+        <td>${startNo + index + 1}</td>
         <td>${row.institute_name ?? ''}</td>
-        <td>${row.course_name ?? ''}</td>
         <td>${row.city ?? ''}</td>
-        <td>${row.hostel_available ?? ''}</td>
-        <td>${row.boys_hostel ?? ''}</td>
-        <td>${row.girls_hostel ?? ''}</td>
         <td>${row.official_website ? `<a href="${row.official_website}" target="_blank" rel="noreferrer">Visit</a>` : ''}</td>
       </tr>
     `)
     .join('');
 }
 
-async function searchInstitutes(event) {
-  event.preventDefault();
-
+function collectFilters() {
   const branch = branchSelect.value;
   const city = citySelect.value;
   const institute = instituteSelect.value;
-  const hostel = hostelSelect.value;
   const boysHostel = boysHostelSelect.value;
   const girlsHostel = girlsHostelSelect.value;
 
+  const filters = {};
+  if (city) filters.city = city;
+  if (branch) filters.branch = branch;
+  if (institute) filters.institute_name = institute;
+  if (boysHostel) filters.boys_hostel = boysHostel;
+  if (girlsHostel) filters.girls_hostel = girlsHostel;
+  return filters;
+}
+
+async function fetchInstitutePage(page = 1) {
   const params = new URLSearchParams();
-  if (city) params.set('city', city);
-  if (branch) params.set('branch', branch);
-  if (institute) params.set('institute_name', institute);
-  if (hostel) params.set('hostel_available', hostel);
-  if (boysHostel) params.set('boys_hostel', boysHostel);
-  if (girlsHostel) params.set('girls_hostel', girlsHostel);
+  Object.entries(activeFilters).forEach(([key, value]) => {
+    params.set(key, value);
+  });
+  params.set('limit', String(PAGE_SIZE));
+  params.set('page', String(page));
 
   const response = await fetch(`/api/filter?${params.toString()}`);
   const data = await response.json();
-  renderResults(data.results || []);
+
+  currentPage = Number(data.page || page);
+  totalPages = Number(data.total_pages || 1);
+
+  renderResults(data.results || [], currentPage, PAGE_SIZE);
+  pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+  prevPageButton.disabled = currentPage <= 1;
+  nextPageButton.disabled = currentPage >= totalPages;
 }
 
-loadFilterOptions().catch(() => {
-  citySelect.innerHTML = '<option value="">Unable to load cities</option>';
-  branchSelect.innerHTML = '<option value="">Unable to load branches</option>';
-  instituteSelect.innerHTML = '<option value="">Unable to load institutes</option>';
-});
+async function searchInstitutes(event) {
+  event.preventDefault();
+  activeFilters = collectFilters();
+  currentPage = 1;
+  await fetchInstitutePage(currentPage);
+}
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -204,3 +211,26 @@ checkAccuracyButton.addEventListener('click', async () => {
 });
 
 filterForm.addEventListener('submit', searchInstitutes);
+
+prevPageButton.addEventListener('click', async () => {
+  if (currentPage > 1) {
+    await fetchInstitutePage(currentPage - 1);
+  }
+});
+
+nextPageButton.addEventListener('click', async () => {
+  if (currentPage < totalPages) {
+    await fetchInstitutePage(currentPage + 1);
+  }
+});
+
+loadFilterOptions()
+  .then(() => {
+    activeFilters = collectFilters();
+    return fetchInstitutePage(1);
+  })
+  .catch(() => {
+    citySelect.innerHTML = '<option value="">Unable to load cities</option>';
+    branchSelect.innerHTML = '<option value="">Unable to load branches</option>';
+    instituteSelect.innerHTML = '<option value="">Unable to load institutes</option>';
+  });

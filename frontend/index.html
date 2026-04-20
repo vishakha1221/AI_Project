@@ -75,8 +75,8 @@
           </label>
 
           <label>
-            Hostel Available
-            <select id="filter-hostel">
+            Boys Hostel
+            <select id="filter-boys-hostel">
               <option value="">All</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -84,16 +84,11 @@
           </label>
 
           <label>
-            Boys Hostel
-            <select id="filter-boys-hostel">
-              <option value="">All</option>
-            </select>
-          </label>
-
-          <label>
             Girls Hostel
             <select id="filter-girls-hostel">
               <option value="">All</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </label>
 
@@ -104,19 +99,22 @@
           <table>
             <thead>
               <tr>
+                <th>No.</th>
                 <th>Institute</th>
-                <th>Branch</th>
                 <th>City</th>
-                <th>Hostel</th>
-                <th>Boys Hostel</th>
-                <th>Girls Hostel</th>
                 <th>Website</th>
               </tr>
             </thead>
             <tbody id="filter-results">
-              <tr><td colspan="7">No results yet.</td></tr>
+              <tr><td colspan="4">No results yet.</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="action-row" id="pagination-controls">
+          <button type="button" id="prev-page" class="secondary">Previous</button>
+          <p id="page-info">Page 1 of 1</p>
+          <button type="button" id="next-page" class="secondary">Next</button>
         </div>
       </section>
     </section>
