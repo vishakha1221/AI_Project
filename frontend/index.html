@@ -4,55 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admission Field Prediction System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <main class="container">
-    <section class="card">
-      <h1>Admission Field Prediction System</h1>
-      <p class="subtitle">Enter your rank, category, and quota to predict the admission field.</p>
+  <div class="bg-shape shape-one"></div>
+  <div class="bg-shape shape-two"></div>
 
-      <form id="prediction-form">
-        <label>
-          Rank
-          <input type="number" id="rank" placeholder="Enter rank" required>
-        </label>
-
-        <label>
-          Category
-          <select id="category">
-            <option value="">Auto</option>
-          </select>
-        </label>
-
-        <label>
-          Quota
-          <select id="quota">
-            <option value="">Auto</option>
-          </select>
-        </label>
-
-        <div class="action-row">
-          <button type="submit" id="predict-btn">Predict</button>
-          <button type="button" id="check-accuracy-btn" class="secondary">Check Accuracy</button>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-wrap">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 2 8l10 5 8.6-4.3V15h1.4V8L12 3Zm-7.2 8.6V15c0 2.7 3.2 4.9 7.2 4.9s7.2-2.2 7.2-4.9v-3.4L12 15.2l-7.2-3.6Z" />
+          </svg>
         </div>
-      </form>
-
-      <div class="result-box">
-        <h2>Prediction Result</h2>
-        <p id="result">No prediction yet.</p>
+        <div>
+          <p class="brand-title">AFPS</p>
+          <p class="brand-sub">Student Dashboard</p>
+        </div>
       </div>
 
-      <div class="result-box" id="accuracy-box">
-        <h2>Accuracy Check</h2>
-        <p id="accuracy-result">No input-based accuracy estimate yet.</p>
-      </div>
+      <nav class="side-nav" aria-label="Sidebar navigation">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#prediction-section">Prediction</a>
+        <a href="#institute-section">Colleges</a>
+      </nav>
+    </aside>
 
-      <section class="search-panel">
-        <h2>Institute Search</h2>
-        <p class="subtitle">Filter institutes and see hostel availability plus the official website.</p>
+    <section class="content-area">
+      <header class="hero-card card">
+        <div>
+          <h1>Admission Field Prediction System</h1>
+          <p class="subtitle">Enter your details to predict suitable admission fields and explore matching colleges with hostel options.</p>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="#dbeafe" />
+            <path d="M50 24 20 38l30 14 26-12.1V58h4V38L50 24Zm-21 31v10c0 8.8 9.4 16 21 16s21-7.2 21-16V55L50 66 29 55Z" fill="#2563eb" />
+          </svg>
+        </div>
+      </header>
 
-        <form id="filter-form">
+      <section id="prediction-section" class="grid-two">
+        <article class="card">
+          <div class="section-head">
+            <h2>Prediction Form</h2>
+            <span class="pill">AI Assisted</span>
+          </div>
+
+          <form id="prediction-form" class="form-grid">
+            <label>
+              Rank
+              <div class="input-wrap">
+                <span class="field-icon" aria-hidden="true">#</span>
+                <input type="number" id="rank" placeholder="Enter rank" required>
+              </div>
+            </label>
+
+            <label>
+              Category
+              <div class="input-wrap">
+                <span class="field-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 10h10v2H7v-2Zm0 4h7v2H7v-2Zm10-9H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/></svg>
+                </span>
+                <select id="category">
+                  <option value="">Auto</option>
+                </select>
+              </div>
+            </label>
+
+            <label>
+              Quota
+              <div class="input-wrap">
+                <span class="field-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Zm0 2.2 6 2.2V11c0 4.1-2.6 8.1-6 9.3-3.4-1.2-6-5.2-6-9.3V6.4l6-2.2Z"/></svg>
+                </span>
+                <select id="quota">
+                  <option value="">Auto</option>
+                </select>
+              </div>
+            </label>
+
+            <div class="action-row">
+              <button type="submit" id="predict-btn" class="btn btn-primary">Predict</button>
+              <button type="button" id="check-accuracy-btn" class="btn btn-secondary">Check Accuracy</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="card results-wrap">
+          <div class="result-grid">
+            <section class="result-card">
+              <h3>Prediction Result</h3>
+              <div id="prediction-empty" class="empty-state">
+                <p class="empty-illustration" aria-hidden="true">🎓</p>
+                <p>No prediction yet. Submit your details to get your best-fit admission field.</p>
+              </div>
+              <p id="result" class="result-text">No prediction yet.</p>
+              <span id="result-badge" class="result-badge">Awaiting Input</span>
+            </section>
+
+            <section class="result-card" id="accuracy-box">
+              <h3>Accuracy Check</h3>
+              <p id="accuracy-result" class="accuracy-text">No input-based accuracy estimate yet.</p>
+              <p id="accuracy-percentage" class="accuracy-percentage">0%</p>
+              <div class="progress-track" aria-hidden="true">
+                <span id="accuracy-progress-fill" class="progress-fill"></span>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+
+      <section id="institute-section" class="card section-block">
+        <div class="section-head section-divider">
+          <h2>Institute Search</h2>
+          <p>Filter by location, branch, institute, and hostel availability.</p>
+        </div>
+
+        <form id="filter-form" class="filter-grid">
           <label>
             City
             <select id="filter-city">
@@ -92,9 +165,13 @@
             </select>
           </label>
 
-          <button type="submit">Search Institutes</button>
+          <div class="filter-action">
+            <button type="submit" class="btn btn-primary">Search Institutes</button>
+          </div>
         </form>
+      </section>
 
+      <section class="card table-card">
         <div class="table-wrap">
           <table>
             <thead>
@@ -111,10 +188,10 @@
           </table>
         </div>
 
-        <div class="action-row" id="pagination-controls">
-          <button type="button" id="prev-page" class="secondary">Previous</button>
+        <div id="pagination-controls" class="pagination-bar">
+          <button type="button" id="prev-page" class="btn btn-secondary">Previous</button>
           <p id="page-info">Page 1 of 1</p>
-          <button type="button" id="next-page" class="secondary">Next</button>
+          <button type="button" id="next-page" class="btn btn-secondary">Next</button>
         </div>
       </section>
     </section>

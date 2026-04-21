@@ -39,6 +39,33 @@ PREDICTION_DEFAULTS = {
 app = Flask(__name__)
 
 
+@lru_cache(maxsize=1)
+def load_institute_master_dataset():
+    """Load and normalize institute master data once for fast filter queries."""
+    if not INSTITUTE_MASTER_FILE_V2.exists():
+        return None
+
+    institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2).copy()
+    for column in ["institute_name", "boys_hostel", "girls_hostel", "official_website"]:
+        if column not in institute_master.columns:
+            institute_master[column] = ""
+
+    institute_master["institute_name"] = (
+        institute_master["institute_name"].fillna("").astype(str).map(standardize_institute_name)
+    )
+    institute_master["boys_hostel"] = institute_master["boys_hostel"].fillna("").astype(str).str.strip()
+    institute_master["girls_hostel"] = institute_master["girls_hostel"].fillna("").astype(str).str.strip()
+    institute_master["official_website"] = institute_master["official_website"].fillna("").astype(str).str.strip()
+    institute_master["city"] = institute_master["institute_name"].map(infer_city)
+    institute_master["_dedupe_key"] = institute_master["institute_name"].map(normalize_text)
+    institute_master = institute_master[institute_master["_dedupe_key"] != ""].copy()
+
+    institute_master["_has_website"] = institute_master["official_website"].astype(str).str.strip() != ""
+    institute_master = institute_master.sort_values(["_dedupe_key", "_has_website"], ascending=[True, False])
+    institute_master = institute_master.drop_duplicates(subset=["_dedupe_key"])
+    return institute_master
+
+
 def _resolve_model_file():
     """Find the trained model in common project locations."""
     candidate_files = [
@@ -322,18 +349,10 @@ def options():
 
     allowed_keys = None
     master_institutes = None
-    if INSTITUTE_MASTER_FILE_V2.exists():
-        institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2, usecols=["institute_name"])
-        institute_master["institute_name"] = (
-            institute_master["institute_name"]
-            .fillna("")
-            .astype(str)
-            .map(standardize_institute_name)
-        )
-        institute_master["_key"] = institute_master["institute_name"].map(normalize_text)
-        institute_master = institute_master[institute_master["_key"] != ""].drop_duplicates(subset=["_key"])
+    institute_master = load_institute_master_dataset()
+    if institute_master is not None:
         master_institutes = institute_master["institute_name"].tolist()
-        allowed_keys = set(institute_master["_key"].tolist())
+        allowed_keys = set(institute_master["_dedupe_key"].tolist())
         dataset["_institute_key"] = dataset["institute_name"].astype(str).map(normalize_text)
         dataset = dataset[dataset["_institute_key"].isin(allowed_keys)]
 
@@ -374,26 +393,9 @@ def filter_institutes():
     page = request.args.get("page", "1")
 
     # Enforce institue_master1.csv as the source-of-truth when available.
-    if INSTITUTE_MASTER_FILE_V2.exists():
-        institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2, usecols=["institute_name"])
-        institute_master = pd.read_csv(INSTITUTE_MASTER_FILE_V2).copy()
-        for column in ["institute_name", "boys_hostel", "girls_hostel", "official_website"]:
-            if column not in institute_master.columns:
-                institute_master[column] = ""
-
-        institute_master["institute_name"] = (
-            institute_master["institute_name"].fillna("").astype(str).map(standardize_institute_name)
-        )
-        institute_master["boys_hostel"] = institute_master["boys_hostel"].fillna("").astype(str).str.strip()
-        institute_master["girls_hostel"] = institute_master["girls_hostel"].fillna("").astype(str).str.strip()
-        institute_master["official_website"] = institute_master["official_website"].fillna("").astype(str).str.strip()
-        institute_master["city"] = institute_master["institute_name"].map(infer_city)
-        institute_master["_dedupe_key"] = institute_master["institute_name"].map(normalize_text)
-        institute_master = institute_master[institute_master["_dedupe_key"] != ""].copy()
-
-        institute_master["_has_website"] = institute_master["official_website"].astype(str).str.strip() != ""
-        institute_master = institute_master.sort_values(["_dedupe_key", "_has_website"], ascending=[True, False])
-        institute_master = institute_master.drop_duplicates(subset=["_dedupe_key"]) 
+    institute_master_source = load_institute_master_dataset()
+    if institute_master_source is not None:
+        institute_master = institute_master_source.copy()
 
         # Branch filter is derived from admissions but applied on master institute keys.
         if branch and "course_name" in admissions_dataset.columns:
