@@ -59,11 +59,17 @@ body {
 
 .app-shell {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr);
+  /* default to a single column so removing the sidebar doesn't leave an empty column */
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   padding: 24px;
   position: relative;
   z-index: 1;
+}
+
+/* Restore two-column layout only when a sidebar is present. Uses :has() where supported. */
+.app-shell:has(> .sidebar) {
+  grid-template-columns: 230px minmax(0, 1fr);
 }
 
 .sidebar {
