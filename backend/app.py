@@ -391,6 +391,7 @@ def filter_institutes():
     girls_hostel = request.args.get("girls_hostel", "").strip()
     limit = request.args.get("limit", "10")
     page = request.args.get("page", "1")
+    show_all = str(limit).strip().casefold() == "all"
 
     # Enforce institue_master1.csv as the source-of-truth when available.
     institute_master_source = load_institute_master_dataset()
@@ -467,15 +468,20 @@ def filter_institutes():
     except (TypeError, ValueError):
         page_value = 1
 
-    limit_value = max(1, min(limit_value, 100))
     page_value = max(1, page_value)
 
     total_count = len(filtered)
-    total_pages = max(1, ceil(total_count / limit_value))
-    page_value = min(page_value, total_pages)
-    start_index = (page_value - 1) * limit_value
-    end_index = start_index + limit_value
-    filtered = filtered.iloc[start_index:end_index]
+    if show_all:
+        limit_value = total_count if total_count > 0 else 1
+        total_pages = 1
+        page_value = 1
+    else:
+        limit_value = max(1, min(limit_value, 100))
+        total_pages = max(1, ceil(total_count / limit_value))
+        page_value = min(page_value, total_pages)
+        start_index = (page_value - 1) * limit_value
+        end_index = start_index + limit_value
+        filtered = filtered.iloc[start_index:end_index]
 
     if "_has_website" in filtered.columns:
         filtered = filtered.drop(columns=["_has_website"])
@@ -487,6 +493,7 @@ def filter_institutes():
             "results": filtered.to_dict(orient="records"),
             "page": page_value,
             "page_size": limit_value,
+            "show_all": show_all,
             "total": total_count,
             "total_pages": total_pages,
         }
