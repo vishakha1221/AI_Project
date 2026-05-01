@@ -171,6 +171,15 @@
         </div>
 
         <div id="pagination-controls" class="pagination-bar">
+          <label class="page-size-control" for="page-size-select">
+            Rows per page
+            <select id="page-size-select">
+              <option value="10">10</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="all">All</option>
+            </select>
+          </label>
           <button type="button" id="prev-page" class="btn btn-secondary">Previous</button>
           <p id="page-info">Page 1 of 1</p>
           <button type="button" id="next-page" class="btn btn-secondary">Next</button>

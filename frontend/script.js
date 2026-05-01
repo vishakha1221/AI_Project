@@ -12,14 +12,16 @@ const filterResults = document.getElementById('filter-results');
 const prevPageButton = document.getElementById('prev-page');
 const nextPageButton = document.getElementById('next-page');
 const pageInfo = document.getElementById('page-info');
+const pageSizeSelect = document.getElementById('page-size-select');
 const predictionEmpty = document.getElementById('prediction-empty');
 const resultBadge = document.getElementById('result-badge');
 const accuracyProgressFill = document.getElementById('accuracy-progress-fill');
 const accuracyPercentage = document.getElementById('accuracy-percentage');
 
-const PAGE_SIZE = 10;
+const DEFAULT_PAGE_SIZE = '10';
 let currentPage = 1;
 let totalPages = 1;
+let currentPageSize = DEFAULT_PAGE_SIZE;
 let activeFilters = {};
 let isFetchingPage = false;
 let lastFilterKey = '';
@@ -58,20 +60,26 @@ function getFilterCacheKey(filters) {
 
 function setPaginationLoadingState(loading) {
   isFetchingPage = loading;
-  prevPageButton.disabled = loading || currentPage <= 1;
-  nextPageButton.disabled = loading || currentPage >= totalPages;
+  const isAllMode = currentPageSize === 'all';
+  prevPageButton.disabled = loading || isAllMode || currentPage <= 1;
+  nextPageButton.disabled = loading || isAllMode || currentPage >= totalPages;
   if (loading) {
-    pageInfo.textContent = `Loading page ${currentPage}...`;
+    pageInfo.textContent = isAllMode ? 'Loading all results...' : `Loading page ${currentPage}...`;
   } else {
-    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    pageInfo.textContent = isAllMode
+      ? `Showing all results (${totalPages === 1 ? 'all available rows' : 'filtered rows'})`
+      : `Page ${currentPage} of ${totalPages}`;
   }
 }
 
 function updatePaginationControls() {
-  prevPageButton.disabled = isFetchingPage || currentPage <= 1;
-  nextPageButton.disabled = isFetchingPage || currentPage >= totalPages;
+  const isAllMode = currentPageSize === 'all';
+  prevPageButton.disabled = isFetchingPage || isAllMode || currentPage <= 1;
+  nextPageButton.disabled = isFetchingPage || isAllMode || currentPage >= totalPages;
   if (!isFetchingPage) {
-    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    pageInfo.textContent = isAllMode
+      ? 'Showing all results'
+      : `Page ${currentPage} of ${totalPages}`;
   }
 }
 
@@ -90,7 +98,7 @@ async function prefetchAdjacentPages() {
     Object.entries(activeFilters).forEach(([key, value]) => {
       params.set(key, value);
     });
-    params.set('limit', String(PAGE_SIZE));
+    params.set('limit', currentPageSize);
     params.set('page', String(page));
 
     try {
@@ -166,7 +174,7 @@ async function loadFilterOptions() {
   });
 }
 
-function renderResults(rows, page = 1, pageSize = PAGE_SIZE) {
+function renderResults(rows, page = 1, pageSize = 1) {
   if (!rows.length) {
     filterResults.innerHTML = '<tr><td colspan="4">No matching institutes found.</td></tr>';
     return;
@@ -203,17 +211,20 @@ function collectFilters() {
 
 async function fetchInstitutePage(page = 1) {
   const filterKey = getFilterCacheKey(activeFilters);
-  if (filterKey !== lastFilterKey) {
+  const combinedKey = `${filterKey}|size:${currentPageSize}`;
+  if (combinedKey !== lastFilterKey) {
     institutePageCache.clear();
-    lastFilterKey = filterKey;
+    lastFilterKey = combinedKey;
   }
 
-  const cacheKey = `${filterKey}|${page}`;
+  const cacheKey = `${combinedKey}|${page}`;
   const cached = institutePageCache.get(cacheKey);
   if (cached) {
     currentPage = Number(cached.page || page);
     totalPages = Number(cached.total_pages || 1);
-    renderResults(cached.results || [], currentPage, PAGE_SIZE);
+    currentPageSize = String(cached.show_all ? 'all' : cached.page_size || currentPageSize);
+    pageSizeSelect.value = currentPageSize;
+    renderResults(cached.results || [], currentPage, cached.show_all ? Math.max((cached.results || []).length, 1) : Number(cached.page_size || 10));
     updatePaginationControls();
     void prefetchAdjacentPages();
     return;
@@ -224,7 +235,7 @@ async function fetchInstitutePage(page = 1) {
   Object.entries(activeFilters).forEach(([key, value]) => {
     params.set(key, value);
   });
-  params.set('limit', String(PAGE_SIZE));
+  params.set('limit', currentPageSize);
   params.set('page', String(page));
 
   try {
@@ -233,9 +244,11 @@ async function fetchInstitutePage(page = 1) {
 
     currentPage = Number(data.page || page);
     totalPages = Number(data.total_pages || 1);
-    institutePageCache.set(`${filterKey}|${currentPage}`, data);
+    currentPageSize = String(data.show_all ? 'all' : data.page_size || currentPageSize);
+    pageSizeSelect.value = currentPageSize;
+    institutePageCache.set(`${combinedKey}|${currentPage}`, data);
 
-    renderResults(data.results || [], currentPage, PAGE_SIZE);
+    renderResults(data.results || [], currentPage, data.show_all ? Math.max((data.results || []).length, 1) : Number(data.page_size || 10));
     updatePaginationControls();
     void prefetchAdjacentPages();
   } catch (error) {
@@ -335,6 +348,13 @@ checkAccuracyButton.addEventListener('click', async () => {
 
 filterForm.addEventListener('submit', searchInstitutes);
 
+pageSizeSelect.addEventListener('change', async () => {
+  currentPageSize = pageSizeSelect.value;
+  institutePageCache.clear();
+  currentPage = 1;
+  await fetchInstitutePage(1);
+});
+
 prevPageButton.addEventListener('click', async () => {
   if (!isFetchingPage && currentPage > 1) {
     await fetchInstitutePage(currentPage - 1);
@@ -352,6 +372,7 @@ loadFilterOptions()
     setPredictionState('No prediction yet.', false);
     setAccuracyProgress(0);
     activeFilters = collectFilters();
+    currentPageSize = pageSizeSelect.value || DEFAULT_PAGE_SIZE;
     return fetchInstitutePage(1);
   })
   .catch(() => {
